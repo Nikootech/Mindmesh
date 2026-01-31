@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <img src="/mindmesh-logo.jpg" alt="MindMesh WorkHub" className="h-12 w-auto object-contain rounded-lg" width="160" height="48" />
+              <img src="/mindmesh-logo.png" alt="MindMesh WorkHub" className="h-12 w-auto object-contain rounded-lg" width="160" height="48" />
               <div>
                 <h3 className="text-xl font-bold">MindMesh</h3>
                 <p className="text-xs text-background/60 tracking-wider uppercase font-medium">WorkHub Ecosystem</p>

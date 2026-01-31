@@ -44,7 +44,7 @@ const Header = () => {
   const Logo = () => (
     <Link to="/homepage" className="flex items-center group" onClick={closeMenu}>
       <img 
-        src="/mindmesh-logo.jpg" 
+        src="/mindmesh-logo.png" 
         alt="MindMesh Logo" 
         className="h-12 w-auto object-contain hover:opacity-90 transition-opacity" 
         width="160"

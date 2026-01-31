@@ -5,7 +5,7 @@ const SEO = ({ title, description, keywords, image, url, schema }) => {
   const siteTitle = "MindMesh | Strategic Technology Consulting";
   const finalTitle = title ? `${title} | MindMesh` : siteTitle;
   const finalDescription = description || "MindMesh WorkHub helps organizations mesh human creativity with technological capability. Expert data analytics, AI solutions, web development, and digital strategy.";
-  const finalImage = image || "https://mindmesh.co.in/mindmesh-logo.jpg";
+  const finalImage = image || "https://mindmesh.co.in/mindmesh-logo.png";
   const finalUrl = url || "https://mindmesh.co.in/";
 
   return (

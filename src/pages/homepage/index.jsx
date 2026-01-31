@@ -24,7 +24,7 @@ const Homepage = () => {
           "@type": "Organization",
           "name": "MindMesh WorkHub",
           "url": "https://mindmesh.co.in",
-          "logo": "https://mindmesh.co.in/mindmesh-logo.jpg",
+          "logo": "https://mindmesh.co.in/mindmesh-logo.png",
           "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+91 88848 67171",
