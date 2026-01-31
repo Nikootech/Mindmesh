@@ -7,7 +7,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   // This changes the output dir from dist to build
   build: {
-    outDir: "build",
+    outDir: "dist",
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       output: {

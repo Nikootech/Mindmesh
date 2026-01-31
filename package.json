@@ -1,6 +1,7 @@
 {
   "name": "mindmesh-workhub",
   "version": "0.1.0",
+  "type": "module",
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "@reduxjs/toolkit": "^2.6.1",
