@@ -3,17 +3,35 @@ import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
+import { supabase } from '../../../lib/supabaseClient';
 
 const CTASection = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
 
-  const handleNewsletterSubmit = (e) => {
+  const handleNewsletterSubmit = async (e) => {
     e?.preventDefault();
     if (email) {
-      setIsSubscribed(true);
-      setEmail('');
-      setTimeout(() => setIsSubscribed(false), 3000);
+      try {
+        const { error } = await supabase
+          .from('newsletter_subs')
+          .insert([{ email, source: 'homepage_footer' }]);
+
+        if (error) {
+          if (error?.code === '23505') {
+            alert('You are already subscribed!');
+          } else {
+            throw error;
+          }
+        } else {
+          setIsSubscribed(true);
+          setEmail('');
+          setTimeout(() => setIsSubscribed(false), 3000);
+        }
+      } catch (error) {
+        console.error('Newsletter error:', error?.message);
+        alert('Failed to subscribe. Please try again later.');
+      }
     }
   };
 

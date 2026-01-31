@@ -4,6 +4,7 @@ import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 import { Checkbox } from '../../../components/ui/Checkbox';
+import { supabase } from '../../../lib/supabaseClient';
 
 const ConsultationForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -159,11 +160,56 @@ const ConsultationForm = () => {
     e?.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    alert('Thank you! Your consultation request has been submitted. We\'ll contact you within 2 hours.');
+    try {
+      const { error } = await supabase
+        .from('consultations')
+        .insert([{
+          name: formData?.name,
+          email: formData?.email,
+          company: formData?.company,
+          phone: formData?.phone,
+          project_type: formData?.projectType,
+          description: formData?.description,
+          budget: formData?.budget,
+          timeline: formData?.timeline,
+          priority: formData?.priority,
+          features: formData?.features,
+          has_existing_system: formData?.hasExistingSystem,
+          team_size: formData?.teamSize,
+          preferred_contact: formData?.preferredContact,
+          min_estimate: estimate?.min,
+          max_estimate: estimate?.max,
+          complexity: estimate?.complexity
+        }]);
+
+      if (error) throw error;
+
+      alert('Thank you! Your consultation request has been submitted. We\'ll contact you within 2 hours.');
+      
+      // Reset form or redirect
+      setFormData({
+        projectType: '',
+        name: '',
+        email: '',
+        company: '',
+        phone: '',
+        budget: '',
+        timeline: '',
+        description: '',
+        features: [],
+        priority: 'medium',
+        hasExistingSystem: false,
+        teamSize: '',
+        preferredContact: 'email'
+      });
+      setCurrentStep(1);
+
+    } catch (error) {
+      console.error('Error submitting form:', error?.message);
+      alert('Oops! Something went wrong while submitting your request. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStep = () => {
