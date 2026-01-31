@@ -165,6 +165,7 @@ const ServicesGrid = () => {
                 }`}
                 onMouseEnter={() => setHoveredService(service?.id)}
                 onMouseLeave={() => setHoveredService(null)}
+                onClick={() => setHoveredService(isHovered ? null : service?.id)}
               >
                 <div className={`h-full p-8 rounded-2xl border transition-all duration-300 ${colors?.bg} ${colors?.border} hover:shadow-soft`}>
                   {/* Service Icon */}
