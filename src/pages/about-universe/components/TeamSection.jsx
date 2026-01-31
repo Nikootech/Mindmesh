@@ -135,6 +135,8 @@ const TeamSection = () => {
                   <Image
                     src={member?.image}
                     alt={member?.name}
+                    width="96"
+                    height="96"
                     className="w-24 h-24 rounded-full object-cover mx-auto"
                   />
                   <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center">

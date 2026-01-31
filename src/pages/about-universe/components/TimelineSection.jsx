@@ -59,7 +59,7 @@ const TimelineSection = () => {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative min-h-[1200px]">
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-border"></div>
           
           <div className="space-y-12">

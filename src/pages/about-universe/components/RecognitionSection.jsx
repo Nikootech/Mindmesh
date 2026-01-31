@@ -168,6 +168,8 @@ const RecognitionSection = () => {
                   <Image
                     src={award?.image}
                     alt={award?.title}
+                    width="300"
+                    height="192"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -234,6 +236,8 @@ const RecognitionSection = () => {
                 <Image
                   src={client?.logo}
                   alt={client?.name}
+                  width="120"
+                  height="60"
                   className="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
                 />
               </div>
