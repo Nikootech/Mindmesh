@@ -87,7 +87,7 @@ const ClientLogos = () => {
           {clients?.map((client) => (
             <div
               key={client?.id}
-              className="group relative bg-card/50 backdrop-blur-sm rounded-xl border border-border p-6 hover:shadow-soft hover:-translate-y-1 transition-all duration-300"
+              className="group relative bg-card/50 rounded-xl border border-border p-6 hover:shadow-soft hover:-translate-y-1 transition-all duration-300"
             >
               {/* Logo */}
               <div className="aspect-[2/1] mb-4 overflow-hidden rounded-lg">
@@ -110,7 +110,7 @@ const ClientLogos = () => {
               </div>
 
               {/* Hover Testimonial */}
-              <div className="absolute inset-0 bg-card/95 backdrop-blur-sm rounded-xl border border-border p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-card/95 rounded-xl border border-border p-4 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
                 <div className="text-center">
                   <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-primary text-lg">"</span>
@@ -148,7 +148,7 @@ const ClientLogos = () => {
         </div>
 
         {/* Testimonial Highlight */}
-        <div className="mt-16 bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-8 shadow-soft">
+        <div className="mt-16 bg-card/80 rounded-2xl border border-border p-8 shadow-soft">
           <div className="max-w-4xl mx-auto text-center">
             <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
               <span className="text-primary text-3xl">"</span>

@@ -196,7 +196,7 @@ const ServicesGrid = () => {
                   </div>
 
                   {/* Case Study Preview - Shown on Hover */}
-                  <div className={`absolute inset-0 p-8 rounded-2xl bg-card/95 backdrop-blur-sm border ${colors?.border} transition-all duration-300 ${
+                  <div className={`absolute inset-0 p-8 rounded-2xl bg-card border ${colors?.border} transition-all duration-300 ${
                     isHovered ? 'opacity-100 visible' : 'opacity-0 invisible'
                   }`}>
                     <div className="h-full flex flex-col justify-between">
@@ -223,7 +223,7 @@ const ServicesGrid = () => {
 
                       <div className="flex items-center justify-between pt-6">
                         <Link 
-                          to="/solutions"
+                          to="/solutions-gallery"
                           className={`text-sm font-medium ${colors?.icon} hover:underline flex items-center space-x-1`}
                         >
                           <span>View Case Study</span>

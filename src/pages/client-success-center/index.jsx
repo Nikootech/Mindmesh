@@ -12,6 +12,7 @@ import ClientPortalSection from "./components/ClientPortalSection";
 import SatisfactionSurveySection from "./components/SatisfactionSurveySection";
 import NextSuccessStoryCTA from "./components/NextSuccessStoryCTA";
 import Icon from "../../components/AppIcon";
+import Footer from "../../components/ui/Footer";
 
 const ClientSuccessCenterPage = () => {
   const caseStudies = [
@@ -108,6 +109,7 @@ const ClientSuccessCenterPage = () => {
         <SatisfactionSurveySection />
         <NextSuccessStoryCTA />
       </div>
+      <Footer />
     </div>
   );
 };

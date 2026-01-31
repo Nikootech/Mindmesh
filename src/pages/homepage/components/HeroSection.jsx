@@ -56,7 +56,7 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left">
             {/* Success Story Carousel */}
-            <div className="mb-8 p-6 bg-card/80 backdrop-blur-sm rounded-2xl border border-border shadow-soft hover-lift">
+            <div className="mb-8 p-6 bg-card/80 rounded-2xl border border-border shadow-soft hover-lift">
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
@@ -153,7 +153,7 @@ const HeroSection = () => {
 
           {/* Right Visual */}
           <div className="relative">
-            <div className="relative bg-card/50 backdrop-blur-sm rounded-3xl p-8 border border-border shadow-soft">
+            <div className="relative bg-card/50 rounded-3xl p-8 border border-border shadow-soft">
               {/* WorkHub Preview */}
               <div className="space-y-6">
                 <div className="flex items-center justify-between">

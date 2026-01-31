@@ -158,7 +158,7 @@ const LiveMetrics = () => {
             return (
               <div
                 key={metric?.id}
-                className={`relative p-6 rounded-2xl border transition-all duration-300 hover:shadow-soft hover:-translate-y-1 ${colors?.bg} ${colors?.border} bg-card/50 backdrop-blur-sm`}
+                className={`relative p-6 rounded-2xl border transition-all duration-300 hover:shadow-soft hover:-translate-y-1 ${colors?.bg} ${colors?.border} bg-card/50`}
               >
                 {/* Live Indicator */}
                 <div className="absolute top-4 right-4">
@@ -200,7 +200,7 @@ const LiveMetrics = () => {
         </div>
 
         {/* Additional Stats */}
-        <div className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-8 shadow-soft">
+        <div className="bg-card/80 rounded-2xl border border-border p-8 shadow-soft">
           <div className="grid md:grid-cols-3 gap-8">
             {/* Current Activity */}
             <div className="text-center">
@@ -238,7 +238,7 @@ const LiveMetrics = () => {
         </div>
 
         {/* Live Updates Feed */}
-        <div className="mt-8 bg-card/50 backdrop-blur-sm rounded-xl border border-border p-6">
+        <div className="mt-8 bg-card/50 rounded-xl border border-border p-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-lg font-semibold text-foreground">Live Updates</h3>
             <div className="flex items-center space-x-2 text-success">

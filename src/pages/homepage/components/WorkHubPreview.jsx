@@ -271,7 +271,7 @@ const WorkHubPreview = () => {
 
           {/* Right Preview */}
           <div className="relative">
-            <div className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border shadow-soft overflow-hidden">
+            <div className="bg-card/80 rounded-2xl border border-border shadow-soft overflow-hidden">
               {/* Tab Navigation */}
               <div className="border-b border-border bg-muted/20">
                 <div className="flex overflow-x-auto">

@@ -8,6 +8,7 @@ import ContactMethods from './components/ContactMethods';
 import AlternativeServices from './components/AlternativeServices';
 import ProcessTimeline from './components/ProcessTimeline';
 import FAQSection from './components/FAQSection';
+import Footer from '../../components/ui/Footer';
 
 const ContactConsultationPage = () => {
   return (
@@ -29,6 +30,7 @@ const ContactConsultationPage = () => {
         <AlternativeServices />
         <FAQSection />
       </div>
+      <Footer />
     </div>
   );
 };

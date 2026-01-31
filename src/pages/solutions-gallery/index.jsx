@@ -10,6 +10,7 @@ import FilterPanel from './components/FilterPanel';
 import ProjectModal from './components/ProjectModal';
 import RecommendationEngine from './components/RecommendationEngine';
 import ComplexityScale from './components/ComplexityScale';
+import Footer from '../../components/ui/Footer';
 
 const SolutionsGallery = () => {
   const [activeFilters, setActiveFilters] = useState({
@@ -542,6 +543,7 @@ const SolutionsGallery = () => {
           setSelectedProject(null);
         }}
       />
+      <Footer />
     </div>
   );
 };

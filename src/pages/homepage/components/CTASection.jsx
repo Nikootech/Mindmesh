@@ -146,7 +146,7 @@ const CTASection = () => {
             return (
               <div
                 key={index}
-                className={`relative p-8 rounded-2xl border transition-all duration-300 hover:shadow-soft hover:-translate-y-2 ${colors?.bg} ${colors?.border} bg-card/50 backdrop-blur-sm`}
+                className={`relative p-8 rounded-2xl border transition-all duration-300 hover:shadow-soft hover:-translate-y-2 ${colors?.bg} ${colors?.border} bg-card/50`}
               >
                 <div className={`w-16 h-16 rounded-2xl ${colors?.iconBg} flex items-center justify-center mb-6`}>
                   <Icon name={action?.icon} size={24} className={colors?.icon} />
@@ -173,7 +173,7 @@ const CTASection = () => {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-card/80 backdrop-blur-sm rounded-2xl border border-border p-8 shadow-soft">
+        <div className="bg-card/80 rounded-2xl border border-border p-8 shadow-soft">
           <div className="max-w-2xl mx-auto text-center">
             <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Icon name="Mail" size={24} className="text-white" />
