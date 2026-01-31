@@ -14,8 +14,9 @@ const Homepage = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO 
-        title="Where Minds Mesh, Innovation Emerges"
-        description="MindMesh is a leading digital transformation partner, providing smart solutions for business and technology challenges. Expert data analytics, AI solutions, web development, and digital strategy."
+        title="Innovation Emerges Where Minds Mesh"
+        description="MindMesh is your partner for custom Software, Web Development, IoT solutions, and CRM systems. We provide expert tech services for Finance, HR, and Retail."
+        keywords="software, web development, IoT, CRM, finance tech, HR software, MindMesh, digital transformation"
         schema={{
           "@context": "https://schema.org",
           "@type": "Organization",
@@ -51,7 +52,7 @@ const Homepage = () => {
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-3">
-                <img src="/mindmesh-logo.jpg" alt="MindMesh WorkHub" className="h-12 w-auto object-contain rounded-lg" />
+                <img src="/mindmesh-logo.jpg" alt="MindMesh WorkHub" className="h-12 w-auto object-contain rounded-lg" width="160" height="48" />
                 <div>
                   <h3 className="text-xl font-bold">MindMesh</h3>
                   <p className="text-xs text-background/60 tracking-wider uppercase font-medium">WorkHub Ecosystem</p>

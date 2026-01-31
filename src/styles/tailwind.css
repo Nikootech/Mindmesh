@@ -30,13 +30,13 @@
     --color-accent-foreground: #FFFFFF; /* white */
     
     /* Status Colors */
-    --color-success: #10B981; /* emerald-500 */
+    --color-success: #059669; /* emerald-600 - better contrast */
     --color-success-foreground: #FFFFFF; /* white */
-    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning: #D97706; /* amber-600 - better contrast */
     --color-warning-foreground: #FFFFFF; /* white */
-    --color-error: #EF4444; /* red-500 */
+    --color-error: #DC2626; /* red-600 - better contrast */
     --color-error-foreground: #FFFFFF; /* white */
-    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive: #DC2626; /* red-600 */
     --color-destructive-foreground: #FFFFFF; /* white */
     
     /* Text Colors */
@@ -75,14 +75,28 @@
   }
   
   .gradient-accent {
-    background: linear-gradient(135deg, #1E40AF 0%, #10B981 100%);
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease-in-out infinite;
+    position: relative;
+    background: #1E40AF;
+    overflow: hidden;
+    z-index: 1;
   }
   
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+  .gradient-accent::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(135deg, #1E40AF 0%, #10B981 100%, #1E40AF 100%);
+    background-size: 50% 50%;
+    z-index: -1;
+    animation: gradient-shift-rotate 8s linear infinite;
+  }
+  
+  @keyframes gradient-shift-rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
   }
   
   .hover-lift {

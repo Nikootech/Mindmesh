@@ -81,6 +81,7 @@ const HeroSection = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentStoryIndex(index)}
+                    aria-label={`Show success story ${index + 1}`}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       index === currentStoryIndex ? 'bg-primary w-6' : 'bg-muted-foreground/30'
                     }`}

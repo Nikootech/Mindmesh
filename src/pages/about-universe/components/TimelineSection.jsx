@@ -64,14 +64,14 @@ const TimelineSection = () => {
           
           <div className="space-y-12">
             {milestones?.map((milestone, index) => (
-              <div key={milestone?.year} className={`flex items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+              <div key={milestone?.year} className={`flex items-center min-h-[200px] ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                 <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'}`}>
-                  <div className="bg-card rounded-xl p-6 shadow-soft hover:shadow-lift transition-all duration-300 border border-border">
+                  <div className="bg-card rounded-xl p-6 shadow-soft hover:shadow-lift transition-all duration-300 border border-border contain-layout">
                     <div className="flex items-center space-x-3 mb-4">
-                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-${milestone?.color}/10`}>
+                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-${milestone?.color}/10 flex-shrink-0`}>
                         <Icon name={milestone?.icon} size={24} className={`text-${milestone?.color}`} />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <div className="text-2xl font-bold text-foreground">{milestone?.year}</div>
                         <div className="text-sm text-muted-foreground">Milestone</div>
                       </div>
@@ -81,7 +81,7 @@ const TimelineSection = () => {
                   </div>
                 </div>
                 
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 mx-auto lg:mx-0">
+                <div className="relative z-10 flex items-center justify-center w-16 h-16 mx-auto lg:mx-0 flex-shrink-0">
                   <div className={`w-4 h-4 rounded-full bg-${milestone?.color} border-4 border-background shadow-lg`}></div>
                 </div>
                 

@@ -8,12 +8,25 @@ export default defineConfig({
   // This changes the output dir from dist to build
   build: {
     outDir: "dist",
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 600,
+    reportCompressedSize: false,
+    cssCodeSplit: true,
+    minify: 'esbuild',
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-          ui: ['@radix-ui/react-slot', 'class-variance-authority', 'clsx', 'tailwind-merge', 'lucide-react'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'vendor-core';
+            }
+            if (id.includes('@radix-ui') || id.includes('lucide-react')) {
+              return 'vendor-ui';
+            }
+            if (id.includes('framer-motion') || id.includes('d3') || id.includes('recharts')) {
+              return 'vendor-charts-motion';
+            }
+            return 'vendor-others';
+          }
         },
       },
     },

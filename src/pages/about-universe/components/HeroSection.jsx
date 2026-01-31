@@ -17,7 +17,7 @@ const HeroSection = () => {
               </div>
               
               <h1 className="text-4xl lg:text-5xl font-bold text-foreground leading-tight">
-                Where Brilliant Minds
+                MindMesh: Where Brilliant Minds
                 <span className="text-primary"> Mesh Together</span>
               </h1>
               
@@ -48,6 +48,8 @@ const HeroSection = () => {
                 src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
                 alt="MindMesh team collaboration"
                 className="w-full h-96 object-cover"
+                fetchPriority="high"
+                loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>

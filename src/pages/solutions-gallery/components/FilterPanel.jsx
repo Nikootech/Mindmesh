@@ -152,6 +152,7 @@ const FilterPanel = ({
                     <button
                       onClick={() => handleFilterToggle(category, filter)}
                       className="hover:bg-primary-dark rounded-full p-0.5 transition-colors duration-200"
+                      aria-label={`Remove ${filter} filter`}
                     >
                       <Icon name="X" size={10} />
                     </button>

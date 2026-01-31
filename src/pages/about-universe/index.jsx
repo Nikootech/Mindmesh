@@ -15,8 +15,8 @@ const AboutUniverse = () => {
     <>
 
       <SEO 
-        title="About Our Universe"
-        description="Learn about MindMesh's journey, mission, and the brilliant minds behind our innovative technology solutions."
+        title="MindMesh | Strategic Technology Consulting & Digital Transformation"
+        description="MindMesh is a leading digital transformation partner in Bangalore, India. We specialize in AI solutions, data analytics, and custom software development."
       />
       <div className="min-h-screen bg-background">
         <Header />

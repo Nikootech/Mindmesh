@@ -396,6 +396,7 @@ const SolutionsGallery = () => {
               <div className="flex items-center bg-gray-100 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
+                  aria-label="Switch to grid view"
                   className={`p-2 rounded-md transition-colors duration-200 ${
                     viewMode === 'grid' ? 'bg-white shadow-sm' : 'hover:bg-gray-200'
                   }`}
@@ -404,6 +405,7 @@ const SolutionsGallery = () => {
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
+                  aria-label="Switch to list view"
                   className={`p-2 rounded-md transition-colors duration-200 ${
                     viewMode === 'list' ? 'bg-white shadow-sm' : 'hover:bg-gray-200'
                   }`}

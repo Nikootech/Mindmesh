@@ -13,8 +13,9 @@ const ContactConsultationPage = () => {
   return (
     <div className="bg-background min-h-screen">
       <SEO 
-        title="Contact & Consultation"
-        description="Connect with MindMesh experts for a free consultation. Get instant project estimates and start your digital transformation journey."
+        title="Software Consultation | Hire Web & CRM Experts"
+        description="Get a free consultation for your next software, web, or IoT project. Expert guidance on CRM, Finance, and HR software from MindMesh WorkHub."
+        keywords="hire developers, software consultation, web development help, CRM experts, finance tech partners, HR software consulting"
       />
       
       <Header />

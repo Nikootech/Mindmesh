@@ -24,6 +24,7 @@ const ServiceCard = ({ service, isExpanded, onToggle }) => {
             <button
               onClick={() => onToggle(service?.id)}
               className="p-2 rounded-lg hover:bg-muted/50 transition-colors duration-200"
+              aria-label={isExpanded ? "Collapse service details" : "Expand service details"}
             >
               <Icon 
                 name={isExpanded ? "ChevronUp" : "ChevronDown"} 

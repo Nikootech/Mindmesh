@@ -68,8 +68,9 @@ const ClientSuccessCenterPage = () => {
   return (
     <div className="bg-background min-h-screen">
       <SEO 
-        title="Client Success Stories"
-        description="Discover how MindMesh has transformed businesses through innovative digital solutions and strategic partnerships."
+        title="Software & HR Projects | Finance & Web Success"
+        description="See how MindMesh delivered high-performance Software, CRM, and IoT solutions for Finance, Retail, and HR sectors. Explore our success stories."
+        keywords="software case studies, CRM implementation success, finance tech portfolio, IoT project examples, web development success"
       />
       
       <Header />

@@ -47,6 +47,8 @@ const Header = () => {
         src="/mindmesh-logo.jpg" 
         alt="MindMesh Logo" 
         className="h-12 w-auto object-contain hover:opacity-90 transition-opacity" 
+        width="160"
+        height="48"
       />
     </Link>
   );

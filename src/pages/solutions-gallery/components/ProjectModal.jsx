@@ -54,6 +54,7 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                 size="icon"
                 onClick={onClose}
                 iconName="X"
+                aria-label="Close project details"
               />
             </div>
           </div>

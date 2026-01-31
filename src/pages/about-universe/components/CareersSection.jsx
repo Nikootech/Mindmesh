@@ -341,6 +341,7 @@ const CareersSection = () => {
                 <button
                   onClick={() => setSelectedJob(null)}
                   className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  aria-label="Close job details"
                 >
                   <Icon name="X" size={20} className="text-muted-foreground" />
                 </button>

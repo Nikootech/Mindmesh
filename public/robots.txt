@@ -41,3 +41,5 @@ Disallow: /
 # Allow legitimate search engines and users
 User-agent: *
 Allow: /
+
+Sitemap: https://mindmesh.co.in/sitemap.xml

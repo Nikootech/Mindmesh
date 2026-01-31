@@ -374,8 +374,9 @@ const ServicesOverview = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO 
-        title="Services Overview"
-        description="Explore our comprehensive range of technology services including Web Development, Mobile Apps, Cloud Architecture, and AI Data Analytics."
+        title="Software & Web Solutions | IoT, CRM, Finance, HR"
+        description="MindMesh provides expert Software Development, Web Applications, IoT Solutions, and custom CRM/ERP systems for Finance and HR industries. Transform your business with us."
+        keywords="software development, web development company, IoT solutions, CRM software, finance software, HR management systems, MindMesh, digital transformation"
       />
 
       <Header />

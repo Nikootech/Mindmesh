@@ -166,19 +166,31 @@ const TeamSection = () => {
 
                 <div className="flex items-center justify-between pt-4 border-t border-border">
                   <div className="flex space-x-2">
-                    <button className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors">
+                    <button 
+                      className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+                      aria-label={`View ${member?.name}'s LinkedIn profile`}
+                    >
                       <Icon name="Linkedin" size={16} className="text-muted-foreground" />
                     </button>
                     {member?.github && (
-                      <button className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors">
+                      <button 
+                        className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+                        aria-label={`View ${member?.name}'s GitHub profile`}
+                      >
                         <Icon name="Github" size={16} className="text-muted-foreground" />
                       </button>
                     )}
-                    <button className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors">
+                    <button 
+                      className="p-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors"
+                      aria-label={`Send an email to ${member?.name}`}
+                    >
                       <Icon name="Mail" size={16} className="text-muted-foreground" />
                     </button>
                   </div>
-                  <button className="text-primary text-sm font-medium group-hover:underline">
+                  <button 
+                    className="text-primary text-sm font-medium group-hover:underline"
+                    aria-label={`View full profile of ${member?.name}`}
+                  >
                     View Profile
                   </button>
                 </div>
@@ -227,6 +239,7 @@ const TeamSection = () => {
                 <button
                   onClick={() => setSelectedMember(null)}
                   className="p-2 rounded-lg hover:bg-muted transition-colors"
+                  aria-label="Close member details"
                 >
                   <Icon name="X" size={20} className="text-muted-foreground" />
                 </button>
