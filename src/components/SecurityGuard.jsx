@@ -24,7 +24,7 @@ const SecurityGuard = () => {
 
       // Action: Redirect to the official site
       // This makes the cloned site unusable as it immediately sends users to the real one
-      window.location.href = 'https://mindmesh.co.in';
+      // window.location.href = 'https://mindmesh.co.in';
     }
   }, []);
 
