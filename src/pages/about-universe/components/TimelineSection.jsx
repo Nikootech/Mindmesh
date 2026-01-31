@@ -64,28 +64,28 @@ const TimelineSection = () => {
           
           <div className="space-y-12">
             {milestones?.map((milestone, index) => (
-              <div key={milestone?.year} className={`flex items-center min-h-[200px] ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
-                <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-8' : 'lg:pl-8'}`}>
-                  <div className="bg-card rounded-xl p-6 shadow-soft hover:shadow-lift transition-all duration-300 border border-border contain-layout">
+              <div key={milestone?.year} className={`flex items-center min-h-[200px] ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                <div className={`w-[45%] ${index % 2 === 0 ? 'pr-4 lg:pr-8' : 'pl-4 lg:pl-8'}`}>
+                  <div className="bg-card rounded-xl p-4 lg:p-6 shadow-soft hover:shadow-lift transition-all duration-300 border border-border contain-layout">
                     <div className="flex items-center space-x-3 mb-4">
-                      <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-${milestone?.color}/10 flex-shrink-0`}>
-                        <Icon name={milestone?.icon} size={24} className={`text-${milestone?.color}`} />
+                      <div className={`w-16 h-16 rounded-lg flex items-center justify-center bg-${milestone?.color}/10 flex-shrink-0`}>
+                        <Icon name={milestone?.icon} size={32} className={`text-${milestone?.color}`} />
                       </div>
-                      <div className="flex-1">
-                        <div className="text-2xl font-bold text-foreground">{milestone?.year}</div>
-                        <div className="text-sm text-muted-foreground">Milestone</div>
+                      <div className="flex-1 min-w-0">
+                        <div className="text-xl lg:text-2xl font-bold text-foreground truncate">{milestone?.year}</div>
+                        <div className="text-xs lg:text-sm text-muted-foreground truncate">Milestone</div>
                       </div>
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{milestone?.title}</h3>
-                    <p className="text-muted-foreground">{milestone?.description}</p>
+                    <h3 className="text-lg lg:text-xl font-semibold text-foreground mb-2 truncate">{milestone?.title}</h3>
+                    <p className="text-sm text-muted-foreground line-clamp-4">{milestone?.description}</p>
                   </div>
                 </div>
                 
-                <div className="relative z-10 flex items-center justify-center w-16 h-16 mx-auto lg:mx-0 flex-shrink-0">
-                  <div className={`w-4 h-4 rounded-full bg-${milestone?.color} border-4 border-background shadow-lg`}></div>
+                <div className="relative z-10 flex items-center justify-center w-8 lg:w-16 flex-shrink-0">
+                  <div className={`w-3 h-3 lg:w-4 lg:h-4 rounded-full bg-${milestone?.color} border-2 lg:border-4 border-background shadow-lg`}></div>
                 </div>
                 
-                <div className="w-full lg:w-5/12"></div>
+                <div className="w-[45%]"></div>
               </div>
             ))}
           </div>

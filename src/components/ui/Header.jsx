@@ -96,71 +96,11 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMenu}
-            className="lg:hidden p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors duration-200"
-            aria-label="Toggle menu"
-          >
-            <Icon name={isMenuOpen ? 'X' : 'Menu'} size={24} />
-          </button>
+
         </div>
       </div>
       {/* Mobile Menu */}
-      <div
-        className={`lg:hidden transition-all duration-300 ease-out ${
-          isMenuOpen
-            ? 'max-h-screen opacity-100' :'max-h-0 opacity-0 overflow-hidden'
-        }`}
-      >
-        <div className="bg-background/95 backdrop-blur-md border-t border-border">
-          <div className="max-w-7xl mx-auto px-4 py-4 space-y-2">
-            {navigationItems?.map((item) => (
-              <Link
-                key={item?.path}
-                to={item?.path}
-                onClick={closeMenu}
-                className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                  isActivePath(item?.path)
-                    ? 'text-primary bg-primary/5 border-l-4 border-primary' :'text-muted-foreground hover:text-foreground hover:bg-muted/50'
-                }`}
-              >
-                <Icon name={item?.icon} size={18} />
-                <span>{item?.name}</span>
-              </Link>
-            ))}
-            
-            <div className="pt-4 border-t border-border">
-              {secondaryItems?.map((item) => (
-                <Link
-                  key={item?.path}
-                  to={item?.path}
-                  onClick={closeMenu}
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-all duration-200"
-                >
-                  <Icon name={item?.icon} size={18} />
-                  <span>{item?.name}</span>
-                </Link>
-              ))}
-            </div>
 
-            <div className="pt-4">
-              <Link to="/contact-consultation" onClick={closeMenu}>
-                <Button 
-                  variant="default" 
-                  size="sm" 
-                  fullWidth 
-                  iconName="ArrowRight" 
-                  iconPosition="right"
-                  className="gradient-accent"
-                >
-                  Start Your Project
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
     </header>
   );
 };
