@@ -192,8 +192,11 @@ const NextSuccessStoryCTA = () => {
                 variant="outline" 
                 size="lg" 
                 iconName="Phone" 
-                iconPosition="left"
+                iconPosition="left" 
                 className="hover-lift"
+                onClick={() => {
+                  window.location.href = 'tel:+918884867171';
+                }}
               >
                 Call Us: +91 88848 67171
               </Button>

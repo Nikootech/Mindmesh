@@ -118,8 +118,8 @@ const WorkHubStorySection = () => {
           </div>
           <div className="relative">
             <Image
-              src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="Team working on multiple tools"
+              src="/images/about/workhub-problem.jpg"
+              alt="Indian developers working on multiple tools"
               className="w-full h-80 object-cover rounded-xl shadow-lg"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
@@ -206,9 +206,9 @@ const WorkHubStorySection = () => {
                 </p>
                 <div className="flex items-center space-x-3">
                   <Image
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80"
+                    src="/images/team/arjun-sharma.jpg"
                     alt="Arjun Sharma"
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="w-10 h-10 rounded-full object-cover ring-2 ring-primary/20 shadow-sm"
                   />
                   <div>
                     <div className="font-semibold text-foreground">Arjun Sharma</div>

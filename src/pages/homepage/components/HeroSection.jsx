@@ -53,46 +53,20 @@ const HeroSection = () => {
       <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-accent/10 rounded-full blur-lg animate-pulse animation-delay-400"></div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+          {/* Left Content - Proper Hierarchy: Tag -> Headline -> Description -> CTAs -> Trust Badges */}
           <div className="text-center lg:text-left">
-            {/* Success Story Carousel */}
-            <div className="mb-8 p-6 bg-card/80 rounded-2xl border border-border shadow-soft hover-lift">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
-                  <span className="text-sm font-medium text-success">Live Success Story</span>
-                </div>
-                <span className="text-xs text-muted-foreground">{currentStory?.industry}</span>
-              </div>
-              
-              <div className="space-y-2">
-                <h3 className="text-lg font-semibold text-foreground">{currentStory?.client}</h3>
-                <p className="text-2xl font-bold text-primary">{currentStory?.outcome}</p>
-                <p className="text-sm text-muted-foreground">{currentStory?.description}</p>
-                <div className="flex items-center space-x-2 pt-2">
-                  <Icon name="TrendingUp" size={16} className="text-success" />
-                  <span className="text-sm font-medium text-success">{currentStory?.metric}</span>
-                </div>
-              </div>
-
-              {/* Story Indicators */}
-              <div className="flex justify-center space-x-2 mt-4">
-                {successStories?.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentStoryIndex(index)}
-                    aria-label={`Show success story ${index + 1}`}
-                    className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                      index === currentStoryIndex ? 'bg-primary w-6' : 'bg-muted-foreground/30'
-                    }`}
-                  />
-                ))}
-              </div>
+            {/* Live Indicator Pill */}
+            <div className="inline-flex items-center space-x-2.5 bg-card/90 backdrop-blur-sm border border-border/80 px-4 py-2 rounded-full shadow-sm mb-6 hover:border-primary/40 transition-colors">
+              <span className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></span>
+              <span className="text-xs sm:text-sm font-semibold text-foreground">Live Success:</span>
+              <span className="text-xs sm:text-sm font-bold text-primary">{currentStory?.client}</span>
+              <span className="text-xs text-muted-foreground hidden sm:inline">•</span>
+              <span className="text-xs sm:text-sm font-semibold text-emerald-600 dark:text-emerald-400">{currentStory?.outcome}</span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-6 mb-8">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight tracking-tight">
                 Where{' '}
                 <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   Minds Mesh
@@ -105,14 +79,14 @@ const HeroSection = () => {
                 Emerges
               </h1>
               
-              <p className="text-xl text-muted-foreground max-w-2xl">
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
                 Smart solutions aren't just about code—they're about understanding the human element behind every business challenge. We build the future, one brilliant connection at a time.
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-              <Link to="/contact">
+              <Link to="/contact-consultation">
                 <Button 
                   size="lg" 
                   className="gradient-accent hover-lift"
@@ -129,6 +103,9 @@ const HeroSection = () => {
                 iconName="Play" 
                 iconPosition="left"
                 className="hover-lift"
+                onClick={() => {
+                  document.getElementById('workhub-preview')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Explore WorkHub Demo
               </Button>
@@ -151,9 +128,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right Visual */}
+          {/* Right Visual - Dashboard + Client Impact Card */}
           <div className="relative">
-            <div className="relative bg-card/50 rounded-3xl p-8 border border-border shadow-soft">
+            <div className="relative bg-card/50 rounded-3xl p-6 sm:p-8 border border-border shadow-soft">
               {/* WorkHub Preview */}
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
@@ -214,24 +191,67 @@ const HeroSection = () => {
                   </div>
                 </div>
 
-                <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  fullWidth
-                  iconName="ExternalLink" 
-                  iconPosition="right"
-                  className="text-primary hover:bg-primary/5"
-                >
-                  See How We Work
-                </Button>
+                <Link to="/about-universe">
+                  <Button 
+                    variant="ghost" 
+                    size="sm" 
+                    fullWidth
+                    iconName="ExternalLink" 
+                    iconPosition="right"
+                    className="text-primary hover:bg-primary/5"
+                  >
+                    See How We Work
+                  </Button>
+                </Link>
               </div>
             </div>
 
-            {/* Floating Stats */}
-            <div className="absolute -top-4 -right-4 bg-card border border-border rounded-xl p-3 shadow-soft">
+            {/* Rotating Live Success Story Highlight Card */}
+            <div className="mt-4 bg-card rounded-2xl border border-border p-5 shadow-soft hover-lift transition-all duration-300">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                  <span className="text-xs font-semibold text-success uppercase tracking-wider">Live Success Story</span>
+                </div>
+                <span className="text-xs text-muted-foreground bg-muted px-2.5 py-0.5 rounded-full font-medium">
+                  {currentStory?.industry}
+                </span>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="text-base font-bold text-foreground">{currentStory?.client}</h4>
+                  <p className="text-xl font-black text-primary">{currentStory?.outcome}</p>
+                  <p className="text-xs text-muted-foreground">{currentStory?.description}</p>
+                </div>
+                <div className="text-right pl-4 flex-shrink-0">
+                  <div className="inline-flex items-center space-x-1.5 text-xs font-bold text-success bg-success/10 px-2.5 py-1 rounded-lg border border-success/20">
+                    <Icon name="TrendingUp" size={14} />
+                    <span>{currentStory?.metric}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Story Indicators */}
+              <div className="flex justify-center space-x-1.5 mt-3 pt-2.5 border-t border-border/50">
+                {successStories?.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentStoryIndex(index)}
+                    aria-label={`Show success story ${index + 1}`}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      index === currentStoryIndex ? 'bg-primary w-6' : 'bg-muted-foreground/30 w-1.5'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Floating Stats Badge */}
+            <div className="absolute -top-3 -right-3 bg-card border border-border rounded-xl px-3 py-1.5 shadow-soft hidden sm:block">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium">Real-time metrics</span>
+                <div className="w-2.5 h-2.5 bg-success rounded-full animate-pulse"></div>
+                <span className="text-xs font-semibold">Real-time metrics</span>
               </div>
             </div>
           </div>

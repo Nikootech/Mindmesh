@@ -215,6 +215,9 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                       iconName="ExternalLink"
                       iconPosition="right"
                       className="gradient-accent"
+                      onClick={() => {
+                        window.open(project?.liveUrl || '/client-success-center', '_blank');
+                      }}
                     >
                       View Live Project
                     </Button>
@@ -224,6 +227,9 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
                     fullWidth
                     iconName="MessageCircle"
                     iconPosition="left"
+                    onClick={() => {
+                      window.location.href = `/contact-consultation?project=${encodeURIComponent(project?.title || '')}`;
+                    }}
                   >
                     Discuss Similar Project
                   </Button>

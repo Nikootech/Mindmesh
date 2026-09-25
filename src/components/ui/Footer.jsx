@@ -20,12 +20,13 @@ const Footer = () => {
               Smart solutions for business & tech. We build the future, one brilliant connection at a time. 
               Where minds mesh, innovation emerges.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-3">
               {[
-                { name: 'Linkedin', url: 'https://linkedin.com/company/mindmesh' },
+                { name: 'Linkedin', url: 'https://www.linkedin.com/in/mindmesh-solutions-628b22403' },
                 { name: 'Twitter', url: 'https://twitter.com/mindmesh_tech' },
-                { name: 'Github', url: 'https://github.com/mindmesh-workhub' },
-                { name: 'Instagram', url: 'https://instagram.com/mindmesh.co.in' }
+                { name: 'Facebook', url: 'https://www.facebook.com/share/14WqRjJDodP/' },
+                { name: 'Instagram', url: 'https://www.instagram.com/mindmeshsolution?stkn=MWVnbzZsZjB6Zmlxdg==' },
+                { name: 'Github', url: 'https://github.com/mindmesh-workhub' }
               ]?.map((platform) => (
                 <a 
                   key={platform?.name} 
@@ -114,9 +115,9 @@ const Footer = () => {
             © {new Date()?.getFullYear()} MindMesh Technology Solutions. All rights reserved.
           </p>
           <div className="flex space-x-8 text-xs text-background/40">
-            <a href="#" className="hover:text-background transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-background transition-colors">Terms of Service</a>
-            <a href="#" className="hover:text-background transition-colors">Cookie Settings</a>
+            <Link to="/privacy-policy" className="hover:text-background transition-colors">Privacy Policy</Link>
+            <Link to="/terms-of-service" className="hover:text-background transition-colors">Terms of Service</Link>
+            <Link to="/cookie-settings" className="hover:text-background transition-colors">Cookie Settings</Link>
           </div>
         </div>
       </div>

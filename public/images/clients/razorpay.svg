@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="180" height="50" fill="none">
+  <!-- Razorpay Icon: Angular dynamic razor slash in royal blue -->
+  <rect x="6" y="8" width="34" height="34" rx="8" fill="#0C2340" />
+  <path d="M26 14l-11 15h9l-4 9 11-15h-8l3-9z" fill="#00BAF2" />
+
+  <!-- Razorpay Wordmark -->
+  <text x="48" y="29" font-family="system-ui, -apple-system, sans-serif" font-size="21" font-weight="900" fill="#0C2340" letter-spacing="-0.5">
+    Razor<tspan fill="#00BAF2">pay</tspan>
+  </text>
+  <text x="49" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="700" fill="#64748B" letter-spacing="1.5">
+    FINTECH PAYMENTS
+  </text>
+</svg>

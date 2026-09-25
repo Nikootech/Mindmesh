@@ -45,8 +45,8 @@ const HeroSection = () => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="MindMesh team collaboration"
+                src="/images/about/hero-collaboration.jpg"
+                alt="MindMesh Indian tech team collaboration in Bangalore office"
                 className="w-full h-96 object-cover"
                 fetchPriority="high"
                 loading="eager"

@@ -43,19 +43,19 @@ const RecognitionSection = () => {
       title: "Emerging Tech Partner of the Year",
       organization: "TechIndia Awards 2023",
       description: "Recognized for innovative solutions and exceptional client service in the technology consulting space.",
-      image: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      image: "/images/about/award-tech-partner.jpg"
     },
     {
       title: "Best Workplace for Innovation",
       organization: "StartupIndia Recognition 2023",
       description: "Acknowledged for creating an environment that fosters creativity and technological innovation.",
-      image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      image: "/images/about/award-workplace-innovation.jpg"
     },
     {
       title: "Client Choice Award",
       organization: "Business Excellence Awards 2022",
       description: "Voted by clients for outstanding project delivery and customer satisfaction.",
-      image: "https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
+      image: "/images/about/award-client-choice.jpg"
     }
   ];
 
@@ -85,28 +85,28 @@ const RecognitionSection = () => {
 
   const clientLogos = [
     {
-      name: "TechCorp Solutions",
-      logo: "https://via.placeholder.com/120x60/1E40AF/FFFFFF?text=TechCorp"
+      name: "eSSL Security",
+      logo: "/images/clients/essl.svg"
     },
     {
-      name: "InnovateLabs",
-      logo: "https://via.placeholder.com/120x60/10B981/FFFFFF?text=InnovateLabs"
+      name: "Saral PayPack",
+      logo: "/images/clients/saral-paypack.svg"
     },
     {
-      name: "DataFlow Systems",
-      logo: "https://via.placeholder.com/120x60/EA580C/FFFFFF?text=DataFlow"
+      name: "Tally Solutions",
+      logo: "/images/clients/tally.svg"
     },
     {
-      name: "CloudFirst Inc",
-      logo: "https://via.placeholder.com/120x60/6366F1/FFFFFF?text=CloudFirst"
+      name: "RoadRobos",
+      logo: "/images/clients/roadrobos.svg"
     },
     {
-      name: "NextGen Fintech",
-      logo: "https://via.placeholder.com/120x60/8B5CF6/FFFFFF?text=NextGen"
+      name: "AmpUp",
+      logo: "/images/clients/ampup.svg"
     },
     {
-      name: "SmartRetail Co",
-      logo: "https://via.placeholder.com/120x60/F59E0B/FFFFFF?text=SmartRetail"
+      name: "Razorpay",
+      logo: "/images/clients/razorpay.svg"
     }
   ];
 
@@ -230,15 +230,18 @@ const RecognitionSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6 items-center">
             {clientLogos?.map((client, index) => (
-              <div key={index} className="flex items-center justify-center">
-                <Image
+              <div 
+                key={index} 
+                className="bg-card/80 hover:bg-card border border-border/80 hover:border-primary/40 rounded-xl p-3 sm:p-4 h-16 sm:h-20 flex items-center justify-center shadow-xs hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 group"
+                title={client?.name}
+              >
+                <img
                   src={client?.logo}
                   alt={client?.name}
-                  width="120"
-                  height="60"
-                  className="h-12 w-auto opacity-60 hover:opacity-100 transition-opacity duration-300 filter grayscale hover:grayscale-0"
+                  className="max-h-9 sm:max-h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
             ))}

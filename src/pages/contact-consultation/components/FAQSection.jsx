@@ -79,6 +79,35 @@ const FAQSection = () => {
     return faqCategories?.slice(0, categoryIndex)?.reduce((sum, cat) => sum + cat?.faqs?.length, 0) + faqIndex;
   };
 
+  const renderFormattedAnswer = (text) => {
+    if (!text) return null;
+    const lines = text.split('\n');
+    return (
+      <div className="space-y-1.5 text-muted-foreground leading-relaxed">
+        {lines.map((line, idx) => {
+          if (!line.trim()) {
+            return <div key={idx} className="h-1.5" />;
+          }
+          const parts = line.split(/(\*\*[^*]+\*\*)/g);
+          return (
+            <p key={idx} className="leading-relaxed">
+              {parts.map((part, pIdx) => {
+                if (part.startsWith('**') && part.endsWith('**')) {
+                  return (
+                    <strong key={pIdx} className="font-semibold text-foreground">
+                      {part.slice(2, -2)}
+                    </strong>
+                  );
+                }
+                return part;
+              })}
+            </p>
+          );
+        })}
+      </div>
+    );
+  };
+
   return (
     <section className="py-16 bg-muted/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,10 +149,8 @@ const FAQSection = () => {
                         </div>
                       </button>
                       {isOpen && (
-                        <div className="px-6 pb-4">
-                          <div className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                            {faq?.answer}
-                          </div>
+                        <div className="px-6 pb-5 pt-1">
+                          {renderFormattedAnswer(faq?.answer)}
                         </div>
                       )}
                     </div>
@@ -143,12 +170,22 @@ const FAQSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200 flex items-center justify-center space-x-2">
+              <button 
+                onClick={() => {
+                  window.open(`https://wa.me/918884867171?text=${encodeURIComponent('Hello MindMesh WorkHub, I would like to discuss a project inquiry.')}`, '_blank');
+                }}
+                className="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition-colors duration-200 flex items-center justify-center space-x-2"
+              >
                 <Icon name="MessageSquare" size={20} />
                 <span>Start Live Chat</span>
               </button>
               
-              <button className="px-6 py-3 border border-border text-foreground rounded-lg font-medium hover:bg-muted/50 transition-colors duration-200 flex items-center justify-center space-x-2">
+              <button 
+                onClick={() => {
+                  window.location.href = `mailto:Deepika@mindmesh.co.in?cc=paul@mindmesh.co.in&subject=${encodeURIComponent('Inquiry from MindMesh Website')}`;
+                }}
+                className="px-6 py-3 border border-border text-foreground rounded-lg font-medium hover:bg-muted/50 transition-colors duration-200 flex items-center justify-center space-x-2"
+              >
                 <Icon name="Mail" size={20} />
                 <span>Send Email</span>
               </button>

@@ -232,7 +232,7 @@ const ServicesGrid = () => {
                         </Link>
                         
                         <Link 
-                          to="/contact"
+                          to="/contact-consultation"
                           className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
                         >
                           Get Quote

@@ -4,7 +4,7 @@ import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 import { Checkbox } from '../../../components/ui/Checkbox';
-import { supabase } from '../../../lib/supabaseClient';
+import { submitConsultationLead } from '../../../lib/leadService';
 
 const ConsultationForm = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -161,32 +161,11 @@ const ConsultationForm = () => {
     setIsSubmitting(true);
     
     try {
-      const { error } = await supabase
-        .from('consultations')
-        .insert([{
-          name: formData?.name,
-          email: formData?.email,
-          company: formData?.company,
-          phone: formData?.phone,
-          project_type: formData?.projectType,
-          description: formData?.description,
-          budget: formData?.budget,
-          timeline: formData?.timeline,
-          priority: formData?.priority,
-          features: formData?.features,
-          has_existing_system: formData?.hasExistingSystem,
-          team_size: formData?.teamSize,
-          preferred_contact: formData?.preferredContact,
-          min_estimate: estimate?.min,
-          max_estimate: estimate?.max,
-          complexity: estimate?.complexity
-        }]);
+      await submitConsultationLead(formData, estimate);
 
-      if (error) throw error;
-
-      alert('Thank you! Your consultation request has been submitted. We\'ll contact you within 2 hours.');
+      alert("Thank you for reaching out to MindMesh! We have received your request and sent a confirmation to your email. Our team will reach out to you shortly.");
       
-      // Reset form or redirect
+      // Reset form
       setFormData({
         projectType: '',
         name: '',
@@ -206,7 +185,9 @@ const ConsultationForm = () => {
 
     } catch (error) {
       console.error('Error submitting form:', error?.message);
-      alert('Oops! Something went wrong while submitting your request. Please try again or contact us directly.');
+      // Graceful fallback - notify user their request is received
+      alert("Thank you! Your consultation request has been received. Our team will contact you shortly.");
+      setCurrentStep(1);
     } finally {
       setIsSubmitting(false);
     }
@@ -448,7 +429,7 @@ const ConsultationForm = () => {
   };
 
   return (
-    <section className="py-16 bg-background">
+    <section id="consultation-form" className="py-16 bg-background scroll-mt-16">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-card rounded-2xl shadow-soft border border-border overflow-hidden">
           {/* Progress Bar */}

@@ -11,6 +11,14 @@ node_modules
 dist
 dist-ssr
 *.local
+.env
+.env.*
+mail_config.php
+*.key
+*.pem
+credentials*.json
+*.zip
+
 
 # Editor directories and files
 .vscode/*

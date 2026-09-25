@@ -19,12 +19,8 @@ const SecurityGuard = () => {
     if (!isAllowed) {
       console.warn(`⚠️ Security Alert: Application running on unauthorized domain: ${hostname}`);
       
-      // OPTIONAL: Reporting logic would go here (requires backend)
-      // sendReportToBackend({ domain: hostname, userAgent: navigator.userAgent });
-
-      // Action: Redirect to the official site
-      // This makes the cloned site unusable as it immediately sends users to the real one
-      // window.location.href = 'https://mindmesh.co.in';
+      // Anti-Theft Protection: Instantly redirect any cloned website to official domain
+      window.location.replace('https://mindmesh.co.in');
     }
   }, []);
 

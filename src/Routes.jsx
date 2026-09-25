@@ -9,6 +9,9 @@ import ContactConsultation from './pages/contact-consultation';
 import ServicesOverview from './pages/services-overview';
 import ClientSuccessCenter from './pages/client-success-center';
 import Homepage from './pages/homepage';
+import PrivacyPolicy from './pages/legal/PrivacyPolicy';
+import TermsOfService from './pages/legal/TermsOfService';
+import CookiePolicy from './pages/legal/CookiePolicy';
 
 const Routes =() => {
   return (
@@ -23,6 +26,10 @@ const Routes =() => {
         <Route path="/services-overview" element={<ServicesOverview />} />
         <Route path="/client-success-center" element={<ClientSuccessCenter />} />
         <Route path="/homepage" element={<Homepage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/cookie-settings" element={<CookiePolicy />} />
         <Route path="*" element={<NotFound />} />
       </RouterRoutes>
     </ErrorBoundary>

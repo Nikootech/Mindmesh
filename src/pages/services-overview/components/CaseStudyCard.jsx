@@ -61,14 +61,14 @@ const CaseStudyCard = ({ caseStudy }) => {
         </div>
 
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-3">
             <img
               src={caseStudy?.client?.logo}
               alt={caseStudy?.client?.name}
-              className="w-8 h-8 rounded-full"
+              className="w-10 h-10 rounded-full object-cover border border-border/80 shadow-sm flex-shrink-0"
             />
             <div>
-              <div className="text-sm font-medium text-foreground">{caseStudy?.client?.name}</div>
+              <div className="text-sm font-semibold text-foreground">{caseStudy?.client?.name}</div>
               <div className="text-xs text-muted-foreground">{caseStudy?.client?.industry}</div>
             </div>
           </div>

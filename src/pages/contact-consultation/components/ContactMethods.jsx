@@ -54,7 +54,7 @@ const ContactMethods = () => {
       name: 'Rajesh Kumar',
       role: 'Lead Solution Architect',
       expertise: ['Web Development', 'System Architecture', 'Cloud Solutions'],
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+      avatar: '/images/team/rajesh-gupta.jpg',
       availability: 'Available now',
       rating: 4.9,
       projects: 150,
@@ -65,7 +65,7 @@ const ContactMethods = () => {
       name: 'Priya Sharma',
       role: 'Mobile App Specialist',
       expertise: ['React Native', 'Flutter', 'iOS/Android'],
-      avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+      avatar: '/images/team/kavya-sharma.jpg',
       availability: 'Available in 2 hours',
       rating: 4.8,
       projects: 120,
@@ -76,7 +76,7 @@ const ContactMethods = () => {
       name: 'Amit Patel',
       role: 'Digital Transformation Lead',
       expertise: ['Process Automation', 'Legacy Migration', 'Change Management'],
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+      avatar: '/images/team/amit-patel.jpg',
       availability: 'Available tomorrow',
       rating: 4.9,
       projects: 200,
@@ -87,7 +87,7 @@ const ContactMethods = () => {
       name: 'Sneha Reddy',
       role: 'SaaS Product Manager',
       expertise: ['Product Strategy', 'SaaS Architecture', 'User Experience'],
-      avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
+      avatar: '/images/team/sneha-reddy.jpg',
       availability: 'Available now',
       rating: 4.7,
       projects: 80,
@@ -151,7 +151,18 @@ const ContactMethods = () => {
                 <Icon name="Clock" size={12} />
               </div>
               
-              <Button variant="outline" size="sm" fullWidth>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                fullWidth
+                onClick={() => {
+                  if (method?.id === 'emergency') {
+                    window.location.href = 'tel:+918884867171';
+                  } else {
+                    document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+              >
                 {method?.action}
               </Button>
             </div>
@@ -222,7 +233,16 @@ const ContactMethods = () => {
                 {selectedExpert === expert?.id && (
                   <div className="mt-4 pt-4 border-t border-border">
                     <p className="text-xs text-muted-foreground mb-3">{expert?.specialization}</p>
-                    <Button variant="default" size="sm" fullWidth iconName="MessageCircle" iconPosition="left">
+                    <Button 
+                      variant="default" 
+                      size="sm" 
+                      fullWidth 
+                      iconName="MessageCircle" 
+                      iconPosition="left"
+                      onClick={() => {
+                        document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
                       Connect with {expert?.name?.split(' ')?.[0]}
                     </Button>
                   </div>
@@ -290,10 +310,26 @@ const ContactMethods = () => {
                   </div>
                   
                   <div className="flex space-x-3 mt-6">
-                    <Button variant="outline" size="sm" iconName="Navigation" iconPosition="left">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      iconName="Navigation" 
+                      iconPosition="left"
+                      onClick={() => {
+                        window.open(`https://maps.google.com/?q=${encodeURIComponent(office?.address || office?.city)}`, '_blank');
+                      }}
+                    >
                       Get Directions
                     </Button>
-                    <Button variant="default" size="sm" iconName="Calendar" iconPosition="left">
+                    <Button 
+                      variant="default" 
+                      size="sm" 
+                      iconName="Calendar" 
+                      iconPosition="left"
+                      onClick={() => {
+                        document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
                       Schedule Visit
                     </Button>
                   </div>

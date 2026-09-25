@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="200" height="50" fill="none">
+  <!-- Saral Icon: Payroll / Rupee Shield badge -->
+  <rect x="6" y="8" width="34" height="34" rx="8" fill="#1E40AF" />
+  <path d="M17 18h12M17 23h9M17 18v14M22 23c4 0 6 2 6 5s-3 5-7 5" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="28" cy="18" r="2.5" fill="#F97316" />
+
+  <!-- Saral PayPack Wordmark -->
+  <text x="48" y="28" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" fill="#1E40AF" letter-spacing="-0.3">
+    Saral<tspan fill="#F97316">PayPack</tspan>
+  </text>
+  <text x="49" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="700" fill="#64748B" letter-spacing="1.5">
+    PAYROLL &amp; HR SUITE
+  </text>
+</svg>

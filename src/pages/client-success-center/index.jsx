@@ -37,7 +37,7 @@ const ClientSuccessCenterPage = () => {
         quote: "MindMesh delivered beyond our expectations. The new platform is a beast!",
         author: "Priya Sharma",
         position: "CTO, ShopEase",
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&fit=crop"
+        avatar: "/images/team/kavya-sharma.jpg"
       }
     },
     {
@@ -61,7 +61,7 @@ const ClientSuccessCenterPage = () => {
         quote: "The level of technical expertise MindMesh brought to the table was refreshing.",
         author: "Vikram Malhotra",
         position: "Head of Engineering, PaySecure",
-        avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&fit=crop"
+        avatar: "/images/team/amit-patel.jpg"
       }
     }
   ];
@@ -69,9 +69,35 @@ const ClientSuccessCenterPage = () => {
   return (
     <div className="bg-background min-h-screen">
       <SEO 
-        title="Software & HR Projects | Finance & Web Success"
-        description="See how MindMesh delivered high-performance Software, CRM, and IoT solutions for Finance, Retail, and HR sectors. Explore our success stories."
-        keywords="software case studies, CRM implementation success, finance tech portfolio, IoT project examples, web development success"
+        title="Client Success Stories & Enterprise Case Studies | MindMesh"
+        description="Discover how MindMesh helped enterprises achieve +150% efficiency, -75% downtime, and ₹50Cr+ GMV through custom software, IoT automation, and CRM solutions."
+        keywords="software case studies India, enterprise digital transformation success, CRM ROI case study, IoT manufacturing case studies, client testimonials MindMesh"
+        url="https://mindmesh.co.in/client-success-center"
+        breadcrumbs={[
+          { name: "Home", url: "/homepage" },
+          { name: "Success Stories", url: "/client-success-center" }
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebPage",
+              "name": "MindMesh Client Success Stories",
+              "description": "Verified client outcomes, ROI metrics, and executive testimonials across FinTech, Healthcare, E-commerce, and Manufacturing.",
+              "url": "https://mindmesh.co.in/client-success-center"
+            }
+          ]
+        }}
+        faq={[
+          {
+            question: "What measurable results does MindMesh deliver for clients?",
+            answer: "MindMesh projects deliver quantified business ROI, including a 150% boost in transaction processing speed for banking, a 75% reduction in industrial machine downtime, 60% lower clinic wait times, and rapid scaling to ₹50Cr+ GMV for e-commerce."
+          },
+          {
+            question: "Can prospective clients speak to past reference clients?",
+            answer: "Yes, client reference calls and executive walkthroughs of past implementations can be arranged during the technical discovery phase."
+          }
+        ]}
       />
       
       <Header />

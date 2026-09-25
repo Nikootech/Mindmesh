@@ -1,0 +1,33 @@
+# MindMesh WorkHub
+
+> MindMesh is a premier strategic technology consulting and digital transformation partner based in Bengaluru, India. We architect and build enterprise software, scalable web platforms, IoT systems, and custom CRM/ERP solutions for high-growth businesses and enterprises worldwide.
+
+## Quick Facts
+- **Headquarters**: Bengaluru, Karnataka, India
+- **Core Focus**: Custom Software Engineering, Enterprise Web Platforms, IoT & Hardware Integration, Cloud & DevOps Architecture, Custom CRM & ERP Systems, AI & Data Analytics
+- **Flagship Enterprise Clients**: Razorpay, eSSL Security, Tally Solutions, Saral PayPack, AmpUp, RoadRobos
+- **Website**: https://mindmesh.co.in
+- **Contact**: contact@mindmesh.co.in | +91 88848 67171
+
+## Core Services
+- **Custom Software Development**: Resilient microservices, high-throughput APIs, enterprise workflow automation (React, Node.js, Python, FastAPI, Go, PostgreSQL).
+- **Enterprise Web & Cloud Platforms**: High-performance web applications, responsive multi-tenant portals, cloud-native deployments on AWS and GCP.
+- **IoT & Smart Hardware Engineering**: Real-time IoT sensor telemetry, edge computing, hardware-to-cloud pipelines, industrial automation.
+- **Custom CRM & ERP Architecture**: Tailored business management, automated sales pipelines, lead scoring, financial compliance, and inventory tracking.
+- **FinTech & HR Tech Solutions**: High-volume transaction processing, automated payroll compliance, biometric attendance integration, and financial analytics.
+
+## Flagship Case Studies & Measured Impact
+- **SecureBank Ltd (FinTech)**: Cloud-native banking platform with sub-second transactions, resulting in +150% operational efficiency and -40% overhead.
+- **TechManufacturing Co (Industrial ERP & IoT)**: Real-time IoT machine telemetry, predictive maintenance, defect reduction from 8% to 0.8%, and ₹2.5Cr annual operational savings.
+- **LearnSmart Academy (EdTech)**: Scalable interactive e-learning platform serving 100K+ concurrent students with 87% course completion.
+- **PropertyPro Realty (Real Estate CRM)**: Automated lead capture and intelligent follow-up workflows delivering +120% lead conversions.
+- **MediCare Hospitals (HealthTech)**: Integrated EHR and patient administration across 15 hospital branches, cutting patient wait times by 60%.
+- **ShopEasy India (E-commerce)**: Multi-vendor marketplace scaling to ₹50Cr+ GMV in its first year with sub-2s page load speeds.
+
+## Navigation & Key Links
+- [Homepage](https://mindmesh.co.in/homepage): Overview of MindMesh capabilities, live metrics, client roster, and WorkHub previews.
+- [Services Ecosystem](https://mindmesh.co.in/services-overview): In-depth breakdown of engineering methodologies, tech stacks, and service tiers.
+- [Solutions Gallery](https://mindmesh.co.in/solutions-gallery): Interactive project portfolio with filterable case studies, tech stacks, and live metrics.
+- [Client Success Center](https://mindmesh.co.in/client-success-center): Client testimonials, executive references, and verified ROI case studies.
+- [About MindMesh](https://mindmesh.co.in/about-universe): Company history, timeline (2018–2026), leadership team, culture, and awards.
+- [Contact & Consultation](https://mindmesh.co.in/contact-consultation): Schedule a technical discovery call and explore project estimates.

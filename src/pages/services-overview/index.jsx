@@ -51,9 +51,9 @@ const ServicesOverview = () => {
             'Performance monitoring and analytics setup'
           ],
           teamMembers: [
-            { name: 'Arjun Sharma', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Deepika Kannadasan', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Rahul Kumar', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face' }
+            { name: 'Arjun Sharma', avatar: '/images/team/arjun-sharma.jpg' },
+            { name: 'Deepika Kannadasan', avatar: '/images/team/deepika-kannadasan.jpg' },
+            { name: 'Rahul Kumar', avatar: '/images/team/rahul-kumar.jpg' }
           ]
         },
         {
@@ -82,9 +82,9 @@ const ServicesOverview = () => {
             'Analytics and crash reporting setup'
           ],
           teamMembers: [
-            { name: 'Deepika Kannadasan', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Sneha Gupta', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Arjun Sharma', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face' }
+            { name: 'Deepika Kannadasan', avatar: '/images/team/deepika-kannadasan.jpg' },
+            { name: 'Sneha Gupta', avatar: '/images/team/sneha-reddy.jpg' },
+            { name: 'Arjun Sharma', avatar: '/images/team/arjun-sharma.jpg' }
           ]
         },
         {
@@ -113,8 +113,8 @@ const ServicesOverview = () => {
             'Security and backup strategies'
           ],
           teamMembers: [
-            { name: 'Rahul Kumar', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop' },
-            { name: 'Arjun Sharma', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face' }
+            { name: 'Rahul Kumar', avatar: '/images/team/rahul-kumar.jpg' },
+            { name: 'Arjun Sharma', avatar: '/images/team/arjun-sharma.jpg' }
           ]
         }
       ]
@@ -152,8 +152,8 @@ const ServicesOverview = () => {
             'Training materials and documentation'
           ],
           teamMembers: [
-            { name: 'Sneha Gupta', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Arjun Sharma', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face' }
+            { name: 'Sneha Gupta', avatar: '/images/team/sneha-reddy.jpg' },
+            { name: 'Arjun Sharma', avatar: '/images/team/arjun-sharma.jpg' }
           ]
         },
         {
@@ -182,8 +182,8 @@ const ServicesOverview = () => {
             'Integration documentation and guides'
           ],
           teamMembers: [
-            { name: 'Rahul Kumar', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Deepika Kannadasn', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face' }
+            { name: 'Rahul Kumar', avatar: '/images/team/rahul-kumar.jpg' },
+            { name: 'Deepika Kannadasan', avatar: '/images/team/deepika-kannadasan.jpg' }
           ]
         }
       ]
@@ -221,8 +221,8 @@ const ServicesOverview = () => {
             'Model monitoring and retraining protocols'
           ],
           teamMembers: [
-            { name: 'Sneha Gupta', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Arjun Sharma', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face' }
+            { name: 'Sneha Gupta', avatar: '/images/team/sneha-reddy.jpg' },
+            { name: 'Arjun Sharma', avatar: '/images/team/arjun-sharma.jpg' }
           ]
         },
         {
@@ -251,10 +251,10 @@ const ServicesOverview = () => {
             'API documentation and developer tools'
           ],
           teamMembers: [
-            { name: 'Arjun Sharma', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Deepika Kannadasan', avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Rahul Kumar', avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=50&h=50&fit=crop&crop=face' },
-            { name: 'Sneha Gupta', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=50&h=50&fit=crop&crop=face' }
+            { name: 'Arjun Sharma', avatar: '/images/team/arjun-sharma.jpg' },
+            { name: 'Deepika Kannadasan', avatar: '/images/team/deepika-kannadasan.jpg' },
+            { name: 'Rahul Kumar', avatar: '/images/team/rahul-kumar.jpg' },
+            { name: 'Sneha Gupta', avatar: '/images/team/sneha-reddy.jpg' }
           ]
         }
       ]
@@ -266,13 +266,13 @@ const ServicesOverview = () => {
       id: 1,
       title: 'E-commerce Platform Transformation',
       description: 'Modernized legacy e-commerce system with microservices architecture, resulting in 300% performance improvement and 45% increase in conversion rates.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop',
+      image: 'https://images.unsplash.com/photo-1573164713988-8665fc963095?w=800&h=500&fit=crop',
       category: 'Web Development',
       categoryColor: 'bg-blue-100 text-blue-800',
       client: {
         name: 'RetailMax Solutions',
         industry: 'E-commerce',
-        logo: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=50&h=50&fit=crop'
+        logo: '/images/team/amit-patel.jpg'
       },
       technologies: ['React', 'Node.js', 'MongoDB', 'AWS'],
       duration: '16 weeks',
@@ -287,13 +287,13 @@ const ServicesOverview = () => {
       id: 2,
       title: 'Healthcare Management System',
       description: 'Built comprehensive patient management system with telemedicine capabilities, serving 50,000+ patients across 15 hospitals.',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=250&fit=crop',
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&h=500&fit=crop',
       category: 'Enterprise Solution',
       categoryColor: 'bg-green-100 text-green-800',
       client: {
         name: 'MediCare Network',
         industry: 'Healthcare',
-        logo: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=50&h=50&fit=crop'
+        logo: '/images/team/kavya-sharma.jpg'
       },
       technologies: ['React', 'Python', 'PostgreSQL', 'WebRTC'],
       duration: '20 weeks',
@@ -308,13 +308,13 @@ const ServicesOverview = () => {
       id: 3,
       title: 'AI-Powered Analytics Platform',
       description: 'Developed machine learning platform for predictive analytics, helping clients reduce operational costs by 40% through intelligent insights.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=500&fit=crop',
       category: 'AI/ML Solution',
       categoryColor: 'bg-purple-100 text-purple-800',
       client: {
         name: 'DataInsights Corp',
         industry: 'Analytics',
-        logo: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=50&h=50&fit=crop'
+        logo: '/images/team/rahul-kumar.jpg'
       },
       technologies: ['Python', 'TensorFlow', 'React', 'AWS'],
       duration: '14 weeks',
@@ -329,13 +329,13 @@ const ServicesOverview = () => {
       id: 4,
       title: 'Mobile Banking Application',
       description: 'Secure mobile banking app with biometric authentication and real-time transactions, serving 100,000+ active users daily.',
-      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=250&fit=crop',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=500&fit=crop',
       category: 'Mobile Development',
       categoryColor: 'bg-orange-100 text-orange-800',
       client: {
         name: 'SecureBank Digital',
         industry: 'Banking',
-        logo: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=50&h=50&fit=crop'
+        logo: '/images/team/rajesh-gupta.jpg'
       },
       technologies: ['React Native', 'Node.js', 'Blockchain', 'AWS'],
       duration: '18 weeks',
@@ -375,9 +375,69 @@ const ServicesOverview = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO 
-        title="Software & Web Solutions | IoT, CRM, Finance, HR"
-        description="MindMesh provides expert Software Development, Web Applications, IoT Solutions, and custom CRM/ERP systems for Finance and HR industries. Transform your business with us."
-        keywords="software development, web development company, IoT solutions, CRM software, finance software, HR management systems, MindMesh, digital transformation"
+        title="Software, Web, IoT & CRM Services | MindMesh"
+        description="Explore MindMesh's core engineering services: Custom Enterprise Software, Modern Web Applications, Industrial IoT Solutions, and bespoke CRM/ERP systems for Finance, HR, and Manufacturing."
+        keywords="custom software development services, enterprise web apps, industrial IoT engineering, custom CRM development, ERP system implementation, cloud architecture, MindMesh services"
+        url="https://mindmesh.co.in/services-overview"
+        breadcrumbs={[
+          { name: "Home", url: "/homepage" },
+          { name: "Services", url: "/services-overview" }
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "name": "Custom Software & Web Engineering",
+              "serviceType": "Software Development",
+              "provider": {
+                "@type": "Organization",
+                "name": "MindMesh WorkHub",
+                "url": "https://mindmesh.co.in"
+              },
+              "areaServed": "Global",
+              "description": "Full-cycle enterprise software development using modern stack: React, Node.js, Python, PostgreSQL, and cloud-native microservices."
+            },
+            {
+              "@type": "Service",
+              "name": "Industrial IoT & Hardware Automation",
+              "serviceType": "IoT Solutions",
+              "provider": {
+                "@type": "Organization",
+                "name": "MindMesh WorkHub",
+                "url": "https://mindmesh.co.in"
+              },
+              "areaServed": "Global",
+              "description": "End-to-end IoT sensor integration, real-time machine telemetry, predictive maintenance, and edge device computing."
+            },
+            {
+              "@type": "Service",
+              "name": "Custom CRM & ERP Architecture",
+              "serviceType": "Enterprise Business Applications",
+              "provider": {
+                "@type": "Organization",
+                "name": "MindMesh WorkHub",
+                "url": "https://mindmesh.co.in"
+              },
+              "areaServed": "Global",
+              "description": "Bespoke CRM and ERP implementations with automated lead tracking, inventory control, and financial integrations."
+            }
+          ]
+        }}
+        faq={[
+          {
+            question: "How does MindMesh deliver custom software projects?",
+            answer: "MindMesh operates on agile two-week development sprints, combining automated testing, CI/CD pipelines, code reviews, and transparent sprint reviews with dedicated technical leadership."
+          },
+          {
+            question: "Can MindMesh integrate IoT hardware with existing software systems?",
+            answer: "Yes, MindMesh specializes in integrating IoT sensors, biometric controllers (such as eSSL), and industrial machines with modern cloud dashboards and real-time ERP databases using MQTT, WebSockets, and InfluxDB."
+          },
+          {
+            question: "What is the typical timeline for an MVP vs an Enterprise project?",
+            answer: "MVP development typically takes 5 to 8 weeks to launch, while full enterprise digital transformations range from 4 to 12 months with milestone-based deliveries."
+          }
+        ]}
       />
 
       <Header />
@@ -405,10 +465,18 @@ const ServicesOverview = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="gradient-accent" iconName="ArrowRight" iconPosition="right">
+                <Button 
+                  size="lg" 
+                  className="gradient-accent" 
+                  iconName="ArrowRight" 
+                  iconPosition="right"
+                  onClick={() => {
+                    document.getElementById('service-categories')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   Explore Ecosystem
                 </Button>
-                <Link to="/contact">
+                <Link to="/contact-consultation">
                   <Button size="lg" variant="outline" iconName="MessageCircle" iconPosition="left">
                     Free Consultation
                   </Button>
@@ -434,7 +502,7 @@ const ServicesOverview = () => {
         </section>
 
         {/* Service Categories */}
-        <section className="py-24">
+        <section id="service-categories" className="py-24 scroll-mt-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {serviceCategories?.map((category) => (
               <CategorySection
@@ -523,14 +591,16 @@ const ServicesOverview = () => {
               Join 500+ businesses that have transformed their digital journey with MindMesh. Let's create something extraordinary together.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact">
+              <Link to="/contact-consultation">
                 <Button size="xl" className="gradient-accent" iconName="Rocket" iconPosition="right">
                   Start Your Project Now
                 </Button>
               </Link>
-              <Button size="xl" variant="outline" iconName="Calendar" iconPosition="left">
-                Schedule Technology Audit
-              </Button>
+              <Link to="/contact-consultation">
+                <Button size="xl" variant="outline" iconName="Calendar" iconPosition="left">
+                  Schedule Technology Audit
+                </Button>
+              </Link>
             </div>
           </div>
         </section>

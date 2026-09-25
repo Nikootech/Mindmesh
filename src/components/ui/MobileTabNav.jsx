@@ -10,11 +10,11 @@ const MobileTabNav = () => {
     { name: 'Services', path: '/services-overview', icon: 'Briefcase' },
     { name: 'Solutions', path: '/solutions-gallery', icon: 'Layers' },
     { name: 'About', path: '/about-universe', icon: 'Users' },
-    { name: 'Contact', path: '/contact', icon: 'MessageCircle' }
+    { name: 'Contact', path: '/contact-consultation', icon: 'MessageCircle' }
   ];
 
   const isActive = (path) => {
-    return location?.pathname === path || (path === '/contact' && location?.pathname === '/contact-consultation');
+    return location?.pathname === path || (path === '/contact-consultation' && location?.pathname === '/contact');
   };
 
   return (

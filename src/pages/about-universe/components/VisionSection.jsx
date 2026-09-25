@@ -9,13 +9,13 @@ const VisionSection = () => {
     {
       name: "Arjun Sharma",
       role: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      image: "/images/team/arjun-sharma.jpg",
       vision: "To build technology that amplifies human potential rather than replacing it. Our future is about creating solutions that make people more productive, creative, and fulfilled in their work."
     },
     {
       name: "Deepika Kannadasan",
       role: "CTO & Co-founder",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80",
+      image: "/images/team/deepika-kannadasan.jpg",
       vision: "The next decade will be defined by intelligent automation and human-AI collaboration. We're positioning MindMesh to be at the forefront of this transformation, helping businesses navigate this new landscape."
     }
   ];
@@ -177,7 +177,20 @@ const VisionSection = () => {
                   Start Your Project
                 </Button>
               </Link>
-              <Button variant="outline" size="lg" iconName="Users" iconPosition="left">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                iconName="Users" 
+                iconPosition="left"
+                onClick={() => {
+                  const el = document.getElementById('careers');
+                  if (el) {
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    window.location.href = '/about-universe#careers';
+                  }
+                }}
+              >
                 View Open Positions
               </Button>
             </div>

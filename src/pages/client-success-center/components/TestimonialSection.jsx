@@ -13,7 +13,7 @@ const TestimonialSection = () => {
       author: "Priya Sharma",
       position: "CTO, ShopEase India",
       company: "ShopEase",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      avatar: "/images/team/kavya-sharma.jpg",
       rating: 5,
       projectType: "E-commerce Platform",
       results: ["300% conversion increase", "50% faster load times", "99.9% uptime achieved"]
@@ -24,7 +24,7 @@ const TestimonialSection = () => {
       author: "Rajesh Kumar",
       position: "Founder & CEO, FitTrack",
       company: "FitTrack",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      avatar: "/images/team/rajesh-gupta.jpg",
       rating: 5,
       projectType: "Mobile App Development",
       results: ["100K+ downloads", "4.8-star rating", "₹2M funding raised"]
@@ -35,7 +35,7 @@ const TestimonialSection = () => {
       author: "Anita Desai",
       position: "IT Director, TechCorp Solutions",
       company: "TechCorp",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      avatar: "/images/team/anita-joshi.jpg",
       rating: 5,
       projectType: "Enterprise Migration",
       results: ["Zero downtime", "200% performance boost", "40% cost reduction"]
@@ -46,7 +46,7 @@ const TestimonialSection = () => {
       author: "Vikram Singh",
       position: "Head of Operations, ServicePro",
       company: "ServicePro",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      avatar: "/images/team/amit-patel.jpg",
       rating: 5,
       projectType: "AI Integration",
       results: ["80% query automation", "45% satisfaction increase", "6-month ROI"]

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
@@ -119,12 +120,16 @@ const PricingTransparency = () => {
           within 24 hours, including timeline, team composition, and investment breakdown.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button variant="default" size="lg" iconName="Calculator" iconPosition="left">
-            Get Instant Estimate
-          </Button>
-          <Button variant="outline" size="lg" iconName="MessageCircle" iconPosition="left">
-            Schedule Consultation
-          </Button>
+          <Link to="/contact-consultation">
+            <Button variant="default" size="lg" iconName="Calculator" iconPosition="left">
+              Get Instant Estimate
+            </Button>
+          </Link>
+          <Link to="/contact-consultation">
+            <Button variant="outline" size="lg" iconName="MessageCircle" iconPosition="left">
+              Schedule Consultation
+            </Button>
+          </Link>
         </div>
       </div>
     </div>

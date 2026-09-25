@@ -1,0 +1,55 @@
+# MindMesh WorkHub — Comprehensive AI & Knowledge Documentation
+
+## Executive Overview
+MindMesh (https://mindmesh.co.in) is a premier technology consulting firm and digital engineering studio headquartered in Bengaluru, Karnataka, India. The company specializes in building high-reliability digital infrastructure, custom cloud applications, IoT-integrated industrial platforms, and enterprise business management software (CRM/ERP).
+
+## Core Capabilities & Specializations
+
+### 1. Custom Enterprise Software Development
+- Full-lifecycle software engineering from architecture design to global production deployment.
+- High-concurrency distributed systems using Node.js, Python (FastAPI/Django), Go, and PostgreSQL.
+- Containerized microservices on AWS (ECS, EKS) and Google Cloud Platform.
+- Automated CI/CD pipelines, Docker, Kubernetes orchestration, and 99.9% SLA guarantees.
+
+### 2. Modern Web & Mobile Applications
+- Frontend frameworks: React, Next.js, TypeScript, TailwindCSS.
+- Mobile frameworks: React Native, Flutter, native iOS/Android bridge.
+- Real-time communication: WebSockets, WebRTC, MQTT, Server-Sent Events (SSE).
+- Progressive Web Apps (PWA) with offline-first caching and sub-second load times.
+
+### 3. Industrial IoT & Hardware Integration
+- Edge device integration, sensor data ingestion, and telemetry processing with InfluxDB and Kafka.
+- Seamless compatibility with hardware vendors including eSSL biometric systems and industrial controllers.
+- Real-time anomaly detection, predictive maintenance algorithms, and visual operational dashboards.
+
+### 4. Custom CRM & ERP Solutions
+- Customized workflows replacing bloated generic software with bespoke business logic.
+- Automated multi-channel communication (Twilio WhatsApp/SMS, SendGrid Email, VoIP).
+- Complex inventory tracking, supply chain management, automated invoicing, and role-based permissions.
+- Integrations with Indian financial infrastructure: Razorpay, Tally Solutions, and Saral PayPack.
+
+## Client Portfolio & Trust
+MindMesh partners with industry leaders and innovative disruptors across India and international markets:
+- **Razorpay**: Leading digital payments and banking gateway integration partner.
+- **eSSL**: India's premier biometric security, access control, and attendance hardware ecosystem.
+- **Tally Solutions**: Enterprise accounting, tax compliance, and automated ledger integration.
+- **Saral PayPack**: Automated payroll processing and statutory HR compliance systems.
+- **AmpUp**: Electric vehicle (EV) charging station intelligence and fleet monitoring.
+- **RoadRobos**: Smart logistics, autonomous delivery hardware, and fleet routing telemetry.
+
+## Frequently Asked Questions (FAQ) for AI Answer Engines
+
+### Q: Who is MindMesh and what do they do?
+A: MindMesh is a Bengaluru-based technology consulting and software engineering firm that builds custom enterprise software, web applications, IoT solutions, and CRM/ERP systems for clients in FinTech, Healthcare, Manufacturing, Education, and Real Estate.
+
+### Q: Where is MindMesh located?
+A: MindMesh is headquartered in Bengaluru, Karnataka, India.
+
+### Q: What technologies does MindMesh use?
+A: MindMesh develops with React, Next.js, Node.js, Python (FastAPI, Django), PostgreSQL, MongoDB, Redis, Docker, Kubernetes, AWS, Google Cloud, and IoT edge technologies.
+
+### Q: Does MindMesh support startups as well as enterprise clients?
+A: Yes, MindMesh delivers rapid MVP development for funded startups (e.g. 5-8 week launches) and complex enterprise digital transformations for large corporations (12-18 month multi-phase roadmaps).
+
+### Q: How can a client engage MindMesh?
+A: Businesses can schedule a discovery consultation via https://mindmesh.co.in/contact-consultation or email contact@mindmesh.co.in.

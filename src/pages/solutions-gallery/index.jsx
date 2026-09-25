@@ -57,7 +57,7 @@ const SolutionsGallery = () => {
         quote: 'MindMesh transformed our entire banking operation. The new platform exceeded our expectations in every way.',
         author: 'Rajesh Kumar',
         position: 'CTO, SecureBank Ltd.',
-        avatar: 'https://randomuser.me/api/portraits/men/32.jpg'
+        avatar: '/images/team/rajesh-gupta.jpg'
       }
     },
     {
@@ -70,7 +70,7 @@ const SolutionsGallery = () => {
       timeline: '8 months',
       teamSize: '10',
       impact: '+200% productivity',
-      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=800&h=600&fit=crop',
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop',
       description: 'Comprehensive hospital management system with patient records, appointment scheduling, and billing integration.',
       fullDescription: `A complete healthcare management ecosystem that digitized MediCare's operations across 15 hospital locations. The system manages patient records, appointment scheduling, inventory management, billing, and staff coordination in a unified platform.`,
       challenge: `MediCare was using multiple disconnected systems for different operations, leading to data silos, inefficient workflows, and poor patient experience. Manual processes were causing delays and errors in critical healthcare delivery.`,
@@ -87,7 +87,7 @@ const SolutionsGallery = () => {
         quote: 'The system has revolutionized how we deliver healthcare. Our staff can now focus on patients instead of paperwork.',
         author: 'Dr. Priya Sharma',
         position: 'Chief Medical Officer, MediCare',
-        avatar: 'https://randomuser.me/api/portraits/women/44.jpg'
+        avatar: '/images/team/kavya-sharma.jpg'
       }
     },
     {
@@ -117,7 +117,7 @@ const SolutionsGallery = () => {
         quote: 'MindMesh delivered a world-class e-commerce platform that helped us achieve profitability within 8 months.',
         author: 'Amit Patel',
         position: 'Founder & CEO, ShopEasy India',
-        avatar: 'https://randomuser.me/api/portraits/men/22.jpg'
+        avatar: '/images/team/amit-patel.jpg'
       }
     },
     {
@@ -130,7 +130,7 @@ const SolutionsGallery = () => {
       timeline: '14 months',
       teamSize: '15',
       impact: '+180% efficiency',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=600&fit=crop',
+      image: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=800&h=600&fit=crop',
       description: 'Enterprise resource planning system for manufacturing operations with IoT integration and real-time monitoring.',
       fullDescription: `A comprehensive ERP system that digitized TechManufacturing's entire operation from supply chain management to quality control. The system integrates with IoT sensors for real-time monitoring and predictive maintenance.`,
       challenge: `TechManufacturing was losing competitive edge due to inefficient manual processes, lack of real-time visibility into operations, and inability to predict maintenance needs. This resulted in frequent downtime and quality issues.`,
@@ -147,7 +147,7 @@ const SolutionsGallery = () => {
         quote: 'The ERP system transformed our manufacturing process. We now have complete visibility and control over our operations.',
         author: 'Suresh Reddy',
         position: 'Operations Director, TechManufacturing',
-        avatar: 'https://randomuser.me/api/portraits/men/55.jpg'
+        avatar: '/images/team/rahul-kumar.jpg'
       }
     },
     {
@@ -160,7 +160,7 @@ const SolutionsGallery = () => {
       timeline: '5 months',
       teamSize: '6',
       impact: '100K+ students',
-      image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop',
+      image: 'https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800&h=600&fit=crop',
       description: 'Interactive online learning platform with video streaming, assessments, and progress tracking.',
       fullDescription: `A comprehensive online learning platform that enables LearnSmart Academy to deliver high-quality education to students across India. The platform includes interactive video lessons, real-time assessments, and detailed progress tracking.`,
       challenge: `LearnSmart needed to transition from traditional classroom teaching to online education while maintaining engagement and learning outcomes. They required a platform that could handle thousands of concurrent users and provide interactive learning experiences.`,
@@ -172,12 +172,12 @@ const SolutionsGallery = () => {
         { metric: 'Course Completion', value: '87%', description: 'Above industry average of 65%' },
         { metric: 'Student Satisfaction', value: '4.8/5', description: 'Based on platform reviews and feedback' },
         { metric: 'Teacher Productivity', value: '+150%', description: 'Automated grading and progress tracking' }
-     ],
+      ],
       testimonial: {
         quote: 'The platform helped us reach students nationwide and maintain high-quality education during challenging times.',
         author: 'Dr. Meera Joshi',
         position: 'Academic Director, LearnSmart Academy',
-        avatar: 'https://randomuser.me/api/portraits/women/33.jpg'
+        avatar: '/images/team/anita-joshi.jpg'
       }
     },
     {
@@ -190,7 +190,7 @@ const SolutionsGallery = () => {
       timeline: '3 months',
       teamSize: '4',
       impact: '+120% leads',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=600&fit=crop',
+      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop',
       description: 'Customer relationship management system for real estate with lead tracking and automated follow-ups.',
       fullDescription: `A specialized CRM system designed for real estate professionals to manage leads, properties, and client relationships effectively. The system automates many manual processes and provides insights for better decision making.`,
       challenge: `PropertyPro was losing potential clients due to poor lead management and lack of systematic follow-up processes. Their agents were spending too much time on administrative tasks instead of closing deals.`,
@@ -207,7 +207,7 @@ const SolutionsGallery = () => {
         quote: 'Our sales have doubled since implementing the CRM. We never miss a lead anymore.',
         author: 'Vikram Singh',
         position: 'Sales Manager, PropertyPro Realty',
-        avatar: 'https://randomuser.me/api/portraits/men/41.jpg'
+        avatar: '/images/team/arjun-sharma.jpg'
       }
     }
   ];
@@ -311,8 +311,69 @@ const SolutionsGallery = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO 
-        title="Solutions Gallery | Project Portfolio"
-        description="Explore our diverse portfolio of successful projects across industries, from simple websites to complex enterprise systems."
+        title="Solutions Gallery & Project Portfolio | MindMesh"
+        description="Explore MindMesh's portfolio of successful digital projects: Digital Banking, Healthcare Management, E-commerce Marketplaces, Manufacturing IoT ERP, EdTech Platforms, and Real Estate CRM."
+        keywords="software portfolio, custom ERP case studies, IoT projects India, EdTech platform development, FinTech software case studies, real estate CRM development"
+        url="https://mindmesh.co.in/solutions-gallery"
+        breadcrumbs={[
+          { name: "Home", url: "/homepage" },
+          { name: "Solutions Gallery", url: "/solutions-gallery" }
+        ]}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "CollectionPage",
+              "name": "MindMesh Solutions Gallery",
+              "description": "Featured engineering case studies and technical outcomes across FinTech, Healthcare, E-Commerce, Manufacturing, EdTech, and Real Estate.",
+              "mainEntity": {
+                "@type": "ItemList",
+                "itemListElement": [
+                  {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Digital Banking Platform - SecureBank Ltd.",
+                    "description": "Cloud-native microservices banking platform achieving +150% efficiency and sub-second processing."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Healthcare Management System - MediCare Hospitals",
+                    "description": "Integrated EHR and clinic operations across 15 hospital branches with 60% reduced wait times."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Manufacturing ERP System - TechManufacturing Co.",
+                    "description": "Enterprise IoT-driven ERP with automated line monitoring and ₹2.5Cr annual operational savings."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "EdTech Learning Platform - LearnSmart Academy",
+                    "description": "Interactive live video education platform serving 100K+ students nationwide."
+                  },
+                  {
+                    "@type": "ListItem",
+                    "position": 5,
+                    "name": "Real Estate CRM - PropertyPro Realty",
+                    "description": "Automated sales pipeline, WhatsApp integration, and intelligent lead follow-up system."
+                  }
+                ]
+              }
+            }
+          ]
+        }}
+        faq={[
+          {
+            question: "What types of software projects has MindMesh successfully deployed?",
+            answer: "MindMesh has architected and delivered enterprise banking platforms, hospital EHR management systems, multi-vendor e-commerce marketplaces, IoT manufacturing ERPs, interactive EdTech portals, and automated real estate CRMs."
+          },
+          {
+            question: "Are live previews or demonstrations available for MindMesh solutions?",
+            answer: "Yes, select projects in the Solutions Gallery support interactive live demonstrations and detailed architecture walkthroughs upon request."
+          }
+        ]}
       />
 
       <Header />

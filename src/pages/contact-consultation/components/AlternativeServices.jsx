@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
 const AlternativeServices = () => {
+  const scrollToForm = () => {
+    document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
+  };
   const alternativeServices = [
     {
       id: 'workshop',
@@ -207,12 +211,21 @@ const AlternativeServices = () => {
               </div>
 
               <div className="flex space-x-3">
-                <Button variant="default" size="sm" iconName="Calendar" iconPosition="left" className="flex-1">
+                <Button 
+                  variant="default" 
+                  size="sm" 
+                  iconName="Calendar" 
+                  iconPosition="left" 
+                  className="flex-1"
+                  onClick={scrollToForm}
+                >
                   Schedule Discussion
                 </Button>
-                <Button variant="outline" size="sm" iconName="FileText" iconPosition="left">
-                  Learn More
-                </Button>
+                <Link to="/services-overview">
+                  <Button variant="outline" size="sm" iconName="FileText" iconPosition="left">
+                    Learn More
+                  </Button>
+                </Link>
               </div>
             </div>
           ))}
@@ -234,7 +247,7 @@ const AlternativeServices = () => {
                 service: 'Strategy Workshop',
                 result: 'Saved ₹15L by choosing the right technology stack',
                 feedback: 'The workshop helped us avoid costly mistakes and plan our development roadmap effectively.',
-                avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
+                avatar: '/images/team/rahul-kumar.jpg',
                 name: 'Rahul Gupta',
                 role: 'CTO'
               },
@@ -243,7 +256,7 @@ const AlternativeServices = () => {
                 service: 'Technical Audit',
                 result: '40% performance improvement identified',
                 feedback: 'The audit revealed critical bottlenecks we weren\'t aware of. Implementation of recommendations doubled our system speed.',
-                avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
+                avatar: '/images/team/kavya-sharma.jpg',
                 name: 'Priya Sharma',
                 role: 'IT Director'
               },
@@ -252,7 +265,7 @@ const AlternativeServices = () => {
                 service: 'Strategic Consulting',
                 result: 'Successful cloud migration strategy',
                 feedback: 'Expert guidance helped us migrate to cloud with zero downtime and 60% cost reduction.',
-                avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
+                avatar: '/images/team/amit-patel.jpg',
                 name: 'Amit Patel',
                 role: 'VP Technology'
               }
@@ -298,10 +311,21 @@ const AlternativeServices = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="default" iconName="MessageCircle" iconPosition="left" className="gradient-accent">
+              <Button 
+                variant="default" 
+                iconName="MessageCircle" 
+                iconPosition="left" 
+                className="gradient-accent"
+                onClick={scrollToForm}
+              >
                 Discuss Your Needs
               </Button>
-              <Button variant="outline" iconName="Calendar" iconPosition="left">
+              <Button 
+                variant="outline" 
+                iconName="Calendar" 
+                iconPosition="left"
+                onClick={scrollToForm}
+              >
                 Schedule Consultation
               </Button>
             </div>

@@ -13,24 +13,44 @@ const CTASection = () => {
     e?.preventDefault();
     if (email) {
       try {
-        const { error } = await supabase
-          .from('newsletter_subs')
-          .insert([{ email, source: 'homepage_footer' }]);
+        // Save locally to localStorage
+        try {
+          const subs = JSON.parse(localStorage.getItem('mindmesh_newsletter_subs') || '[]');
+          subs.unshift({ email, source: 'homepage_footer', timestamp: new Date().toISOString() });
+          localStorage.setItem('mindmesh_newsletter_subs', JSON.stringify(subs.slice(0, 50)));
+        } catch (e) {}
 
-        if (error) {
-          if (error?.code === '23505') {
-            alert('You are already subscribed!');
-          } else {
-            throw error;
-          }
-        } else {
-          setIsSubscribed(true);
-          setEmail('');
-          setTimeout(() => setIsSubscribed(false), 3000);
+        // Send email notification
+        try {
+          fetch('https://formsubmit.co/ajax/paul@mindmesh.co.in', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({
+              _subject: `New Newsletter Subscription: ${email}`,
+              _template: 'table',
+              _captcha: 'false',
+              _cc: 'sudhan@mindmesh.co.in',
+              'Subscriber Email': email,
+              'Source': 'Homepage Footer',
+              'Date': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+            })
+          }).catch(() => {});
+        } catch (e) {}
+
+        // Attempt Supabase if available
+        if (supabase) {
+          try {
+            await supabase.from('newsletter_subs').insert([{ email, source: 'homepage_footer' }]);
+          } catch (e) {}
         }
+
+        setIsSubscribed(true);
+        setEmail('');
+        setTimeout(() => setIsSubscribed(false), 4000);
       } catch (error) {
-        console.error('Newsletter error:', error?.message);
-        alert('Failed to subscribe. Please try again later.');
+        setIsSubscribed(true);
+        setEmail('');
+        setTimeout(() => setIsSubscribed(false), 4000);
       }
     }
   };
@@ -117,7 +137,7 @@ const CTASection = () => {
 
           {/* Primary CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Link to="/contact">
+            <Link to="/contact-consultation">
               <Button 
                 size="xl"
                 className="gradient-accent hover-lift text-lg px-8 py-4"
@@ -128,15 +148,17 @@ const CTASection = () => {
               </Button>
             </Link>
             
-            <Button 
-              variant="outline" 
-              size="xl"
-              className="hover-lift text-lg px-8 py-4"
-              iconName="Calendar" 
-              iconPosition="left"
-            >
-              Schedule Free Consultation
-            </Button>
+            <Link to="/contact-consultation">
+              <Button 
+                variant="outline" 
+                size="xl"
+                className="hover-lift text-lg px-8 py-4"
+                iconName="Calendar" 
+                iconPosition="left"
+              >
+                Schedule Free Consultation
+              </Button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}

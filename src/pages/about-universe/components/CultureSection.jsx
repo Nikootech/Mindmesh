@@ -58,19 +58,19 @@ const CultureSection = () => {
       quote: "At MindMesh, I'm not just a developer—I'm a problem solver, a mentor, and a continuous learner. The culture here pushes me to be my best self.",
       author: "Rahul Kumar",
       role: "Lead Developer",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+      image: "/images/team/rahul-kumar.jpg"
     },
     {
       quote: "The transparency and trust here is incredible. I can experiment with new design approaches knowing the team will provide honest, constructive feedback.",
       author: "Sneha Reddy",
       role: "Design Lead",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+      image: "/images/team/sneha-reddy.jpg"
     },
     {
       quote: "Working at MindMesh feels like being part of a family that happens to build amazing software together. The support system is unmatched.",
       author: "Anita Joshi",
       role: "Project Manager",
-      image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+      image: "/images/team/anita-joshi.jpg"
     }
   ];
 
@@ -200,8 +200,8 @@ const CultureSection = () => {
             </div>
             <div className="relative">
               <Image
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-                alt="Team collaboration at MindMesh"
+                src="/images/about/behind-the-scenes.jpg"
+                alt="Indian team collaboration at MindMesh"
                 className="w-full h-80 object-cover rounded-xl"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>

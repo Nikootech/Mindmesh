@@ -206,8 +206,41 @@ const WorkHubPreview = () => {
     }
   };
 
+  const handleDownloadBrochure = () => {
+    const brochureText = `MindMesh WorkHub Ecosystem - Corporate Profile 2026
+Website: https://mindmesh.co.in
+Contact: contact@mindmesh.co.in | +91 88848 67171
+Address: Manyata Mahogany, F2, 9&10 FLR, Manyata-Techpark, Arabic College, Bangalore, Karnataka 560045
+
+CORE SERVICES:
+1. Web Development & Full-Stack Engineering (React, Node, Cloud Native)
+2. Mobile Application Engineering (React Native, iOS, Android)
+3. Cloud Architecture & DevOps (AWS, GCP, Azure, Kubernetes)
+4. AI, GenAI & Data Analytics
+5. Digital Strategy & Agile Transformation
+
+ENGAGEMENT MODELS:
+- Fixed-Scope Milestones (Guaranteed pricing & timeline)
+- Dedicated Engineering Teams / Sprints
+- Strategic Technology Consultation
+
+WARRANTY & ASSURANCE:
+- 90-Day Post-Launch Warranty
+- SLA-Backed Support & Enterprise Security (ISO / SOC 2 Ready)`;
+
+    const blob = new Blob([brochureText], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'MindMesh-WorkHub-Brochure-2026.txt');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="workhub-preview" className="py-20 bg-muted/30 scroll-mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
@@ -247,7 +280,7 @@ const WorkHubPreview = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/contact">
+              <Link to="/contact-consultation">
                 <Button 
                   size="lg"
                   iconName="Calendar" 
@@ -263,6 +296,7 @@ const WorkHubPreview = () => {
                 size="lg"
                 iconName="Download" 
                 iconPosition="left"
+                onClick={handleDownloadBrochure}
               >
                 Download Brochure
               </Button>

@@ -4,6 +4,44 @@ import Button from '../../../components/ui/Button';
 
 const CareersSection = () => {
   const [selectedJob, setSelectedJob] = useState(null);
+  const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
+  const [applyJobTitle, setApplyJobTitle] = useState('');
+  const [shareCopied, setShareCopied] = useState(false);
+  const [applicationSubmitted, setApplicationSubmitted] = useState(false);
+  const [candidateForm, setCandidateForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    portfolio: '',
+    notes: ''
+  });
+
+  const handleOpenApplyModal = (title) => {
+    setApplyJobTitle(title || 'General Application');
+    setApplicationSubmitted(false);
+    setIsApplyModalOpen(true);
+  };
+
+  const handleShareJob = (job) => {
+    const shareUrl = `${window.location.origin}/about-universe#careers`;
+    const shareText = `Explore career opportunity: ${job?.title} at MindMesh WorkHub - ${shareUrl}`;
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareText);
+      setShareCopied(true);
+      setTimeout(() => setShareCopied(false), 2500);
+    }
+  };
+
+  const handleCandidateSubmit = (e) => {
+    e.preventDefault();
+    const mailtoSubject = encodeURIComponent(`Job Application: ${applyJobTitle} - ${candidateForm.name}`);
+    const mailtoBody = encodeURIComponent(
+      `Name: ${candidateForm.name}\nEmail: ${candidateForm.email}\nPhone: ${candidateForm.phone}\nPortfolio/LinkedIn: ${candidateForm.portfolio}\nPosition: ${applyJobTitle}\n\nNote:\n${candidateForm.notes}`
+    );
+    // Trigger candidate email client as well as setting confirmed UI state
+    window.location.href = `mailto:careers@mindmesh.co.in?cc=paul@mindmesh.co.in&subject=${mailtoSubject}&body=${mailtoBody}`;
+    setApplicationSubmitted(true);
+  };
 
   const openPositions = [
     {
@@ -104,21 +142,21 @@ const CareersSection = () => {
       role: "Senior Developer",
       tenure: "2 years",
       quote: "MindMesh gave me the opportunity to work on challenging projects while maintaining a perfect work-life balance. The learning culture here is exceptional.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+      image: "/images/team/rajesh-gupta.jpg"
     },
     {
       name: "Kavya Sharma",
       role: "UX Designer",
       tenure: "1.5 years",
       quote: "The creative freedom and support I get here is amazing. I've grown more in 1.5 years at MindMesh than in my previous 3 years elsewhere.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+      image: "/images/team/kavya-sharma.jpg"
     },
     {
       name: "Amit Patel",
       role: "DevOps Engineer",
       tenure: "3 years",
       quote: "Being part of MindMesh from the early days has been incredible. The company truly values its employees and invests in their growth.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+      image: "/images/team/amit-patel.jpg"
     }
   ];
 
@@ -156,7 +194,7 @@ const CareersSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="careers" className="py-20 bg-muted/30 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full text-sm font-medium mb-4">
@@ -234,7 +272,8 @@ const CareersSection = () => {
                   <img
                     src={testimonial?.image}
                     alt={testimonial?.name}
-                    className="w-12 h-12 rounded-full object-cover"
+                    className="w-12 h-12 rounded-full object-cover ring-2 ring-primary/20 shadow-sm"
+                    loading="lazy"
                   />
                   <div>
                     <div className="font-semibold text-foreground">{testimonial?.name}</div>
@@ -303,7 +342,14 @@ const CareersSection = () => {
           </div>
 
           <div className="text-center">
-            <Button variant="default" size="lg" iconName="Mail" iconPosition="left" className="gradient-accent">
+            <Button 
+              variant="default" 
+              size="lg" 
+              iconName="Mail" 
+              iconPosition="left" 
+              className="gradient-accent"
+              onClick={() => handleOpenApplyModal('General Engineering & Technical Application')}
+            >
               Send Your Application
             </Button>
             <p className="text-sm text-muted-foreground mt-4">
@@ -390,15 +436,154 @@ const CareersSection = () => {
                 </div>
 
                 <div className="flex space-x-4 pt-6 border-t border-border">
-                  <Button variant="default" size="lg" iconName="Send" iconPosition="left" className="gradient-accent">
+                  <Button 
+                    variant="default" 
+                    size="lg" 
+                    iconName="Send" 
+                    iconPosition="left" 
+                    className="gradient-accent"
+                    onClick={() => {
+                      const title = selectedJob?.title;
+                      setSelectedJob(null);
+                      handleOpenApplyModal(title);
+                    }}
+                  >
                     Apply Now
                   </Button>
-                  <Button variant="outline" size="lg" iconName="Share" iconPosition="left">
-                    Share Job
+                  <Button 
+                    variant="outline" 
+                    size="lg" 
+                    iconName={shareCopied ? "Check" : "Share"} 
+                    iconPosition="left"
+                    onClick={() => handleShareJob(selectedJob)}
+                  >
+                    {shareCopied ? 'Link Copied!' : 'Share Job'}
                   </Button>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Candidate Direct Application Modal */}
+      {isApplyModalOpen && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-card rounded-2xl max-w-lg w-full p-6 border border-border shadow-2xl animate-in fade-in duration-200">
+            <div className="flex items-center justify-between mb-4 pb-3 border-b border-border">
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Submit Your Application</h3>
+                <p className="text-xs text-primary font-medium mt-0.5">{applyJobTitle}</p>
+              </div>
+              <button
+                onClick={() => setIsApplyModalOpen(false)}
+                className="p-1.5 rounded-lg hover:bg-muted text-muted-foreground"
+                aria-label="Close application modal"
+              >
+                <Icon name="X" size={20} />
+              </button>
+            </div>
+
+            {applicationSubmitted ? (
+              <div className="text-center py-8">
+                <div className="w-14 h-14 bg-success/10 text-success rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Icon name="CheckCircle" size={28} />
+                </div>
+                <h4 className="text-lg font-bold text-foreground mb-2">Application Drafted!</h4>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Your email client has opened pre-filled to <strong className="text-foreground">careers@mindmesh.co.in</strong>. Attach your resume and click send to complete your application.
+                </p>
+                <Button 
+                  variant="default" 
+                  fullWidth 
+                  onClick={() => setIsApplyModalOpen(false)}
+                >
+                  Close Window
+                </Button>
+              </div>
+            ) : (
+              <form onSubmit={handleCandidateSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-xs font-semibold text-foreground mb-1">Full Name *</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Deepika Kannadasan"
+                    value={candidateForm.name}
+                    onChange={(e) => setCandidateForm({ ...candidateForm, name: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-foreground mb-1">Email Address *</label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="your.email@domain.com"
+                      value={candidateForm.email}
+                      onChange={(e) => setCandidateForm({ ...candidateForm, email: e.target.value })}
+                      className="w-full px-3.5 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-foreground mb-1">Phone Number *</label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+91 98765 43210"
+                      value={candidateForm.phone}
+                      onChange={(e) => setCandidateForm({ ...candidateForm, phone: e.target.value })}
+                      className="w-full px-3.5 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-foreground mb-1">LinkedIn / Portfolio URL</label>
+                  <input
+                    type="url"
+                    placeholder="https://linkedin.com/in/yourname or github.com"
+                    value={candidateForm.portfolio}
+                    onChange={(e) => setCandidateForm({ ...candidateForm, portfolio: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-foreground mb-1">Cover Note / Brief Introduction</label>
+                  <textarea
+                    rows={3}
+                    placeholder="Tell us briefly about your experience, key tech stack, and why you want to join MindMesh..."
+                    value={candidateForm.notes}
+                    onChange={(e) => setCandidateForm({ ...candidateForm, notes: e.target.value })}
+                    className="w-full px-3.5 py-2.5 bg-background border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  />
+                </div>
+
+                <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+                  <Button 
+                    type="submit" 
+                    variant="default" 
+                    iconName="Send" 
+                    iconPosition="left" 
+                    className="gradient-accent flex-1"
+                  >
+                    Submit & Open Email
+                  </Button>
+                  <Button 
+                    type="button" 
+                    variant="outline" 
+                    onClick={() => {
+                      window.location.href = `mailto:careers@mindmesh.co.in?subject=Resume%20Submission%20-%20MindMesh`;
+                    }}
+                  >
+                    Direct Email
+                  </Button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       )}

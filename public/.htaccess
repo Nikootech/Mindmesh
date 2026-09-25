@@ -1,33 +1,95 @@
+# =====================================================
+# MINDMESH WORKHUB - ENTERPRISE SECURITY & ROUTING CONFIG
+# =====================================================
+
+# 1. Disable Server Signature and Directory Indexing
+ServerSignature Off
+Options -Indexes
+
+# 2. Block direct web access to sensitive files, configs, keys, maps, and backups
+<FilesMatch "(^\.env|\.git|\.map$|mail_config.*\.php|\.log|\.sql|\.ini|\.conf|\.sh|\.bak|\.swp|\.yml|\.yaml|package(-lock)?\.json|composer\.(json|lock)|tsconfig\.json)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 3. Block HTTP TRACE and TRACK (prevents Cross-Site Tracing / XST attacks)
 <IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+    RewriteRule .* - [F]
 </IfModule>
 
+# 4. Enforce HTTPS across all pages (Automatic SSL Redirect)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^localhost [NC]
+    RewriteCond %{HTTP_HOST} !^127\.0\.0\.1 [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 5. Enterprise HTTP Security Headers
+<IfModule mod_headers.c>
+    # Enforce HTTPS HSTS for 1 year with subdomains
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+    
+    # Clickjacking defense (disallows rendering in malicious iframes)
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # MIME-sniffing prevention (forces browser to adhere to declared content-type)
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Legacy XSS Filter protection
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Strict referrer policy
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Restrict device sensor & hardware permissions
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    
+    # Remove server information headers
+    Header unset X-Powered-By
+</IfModule>
+
+# 6. Single Page Application (SPA) HTML5 History Routing
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Do not rewrite actual files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    
+    # Route all other URLs to index.html for React Router
+    RewriteRule . /index.html [L]
+</IfModule>
+
+# 7. Performance Caching
 <IfModule mod_expires.c>
-  ExpiresActive On
-  ExpiresByType image/jpg "access plus 1 year"
-  ExpiresByType image/jpeg "access plus 1 year"
-  ExpiresByType image/gif "access plus 1 year"
-  ExpiresByType image/png "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 year"
-  ExpiresByType image/svg+xml "access plus 1 year"
-  ExpiresByType text/css "access plus 1 year"
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType text/html "access plus 0 seconds"
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
 <IfModule mod_headers.c>
-  # Cache static assets for 1 year
-  <FilesMatch "\.(js|css|jpg|jpeg|png|gif|swf|svg|webp|woff|woff2|ico)$">
-    Header set Cache-Control "max-age=31536000, public"
-  </FilesMatch>
-  
-  # Don't cache HTML
-  <FilesMatch "\.(html)$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-  </FilesMatch>
+    <FilesMatch "\.(js|css|jpg|jpeg|png|gif|swf|svg|webp|woff|woff2|ico)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+    <FilesMatch "\.(html)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+    </FilesMatch>
 </IfModule>
