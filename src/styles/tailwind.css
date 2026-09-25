@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,34 +12,34 @@
     --color-popover: #FFFFFF; /* white */
     --color-popover-foreground: #111827; /* gray-900 */
     --color-muted: #F3F4F6; /* gray-100 */
-    --color-muted-foreground: #6B7280; /* gray-500 */
+    --color-muted-foreground: #4B5563; /* gray-600 — WCAG AA contrast ≥4.5:1 on white/gray-100 */
     
     /* Border and Input */
     --color-border: #E5E7EB; /* gray-200 */
     --color-input: #FFFFFF; /* white */
     --color-ring: #1E40AF; /* blue-800 */
     
-    /* Brand Colors */
-    --color-primary: #1E40AF; /* blue-800 */
+    /* Brand Colors - WCAG AA compliant */
+    --color-primary: #1E40AF; /* blue-800 - contrast 8.7:1 */
     --color-primary-foreground: #FFFFFF; /* white */
-    --color-secondary: #059669; /* emerald-600 */
+    --color-secondary: #047857; /* emerald-700 - contrast 4.63:1 */
     --color-secondary-foreground: #FFFFFF; /* white */
-    --color-accent: #EA580C; /* orange-600 */
+    --color-accent: #C2410C; /* orange-700 - contrast 4.7:1 */
     --color-accent-foreground: #FFFFFF; /* white */
     
     /* Status Colors */
-    --color-success: #059669; /* emerald-600 - better contrast */
+    --color-success: #047857; /* emerald-700 */
     --color-success-foreground: #FFFFFF; /* white */
-    --color-warning: #D97706; /* amber-600 - better contrast */
+    --color-warning: #B45309; /* amber-700 */
     --color-warning-foreground: #FFFFFF; /* white */
-    --color-error: #DC2626; /* red-600 - better contrast */
+    --color-error: #B91C1C; /* red-700 */
     --color-error-foreground: #FFFFFF; /* white */
-    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive: #B91C1C; /* red-700 */
     --color-destructive-foreground: #FFFFFF; /* white */
     
     /* Text Colors */
     --color-text-primary: #111827; /* gray-900 */
-    --color-text-secondary: #6B7280; /* gray-500 */
+    --color-text-secondary: #4B5563; /* gray-600 */
     --color-surface: #FFFFFF; /* white */
     
     /* Radius */
@@ -66,6 +64,25 @@
   
   .font-mono {
     font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Cascadia Code', 'Ubuntu Mono', monospace;
+  }
+
+  /* Accessibility: links in text blocks must be distinguishable beyond color alone */
+  a:not([class]),
+  p a,
+  td a,
+  li a,
+  blockquote a {
+    text-decoration: underline !important;
+    text-underline-offset: 2px;
+  }
+
+  /* Accessible focus ring for all interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid #1E40AF;
+    outline-offset: 2px;
+    border-radius: 2px;
   }
 }
 

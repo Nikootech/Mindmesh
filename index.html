@@ -8,16 +8,23 @@
   <!-- Critical Performance Hints -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://images.unsplash.com">
-  
-  <!-- Preload Critical Fonts -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style">
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" as="style">
+
+  <!-- Non-blocking Font Loading -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Preload Critical LCP Hero Image -->
+  <link rel="preload" as="image" href="/images/about/hero-collaboration.webp" type="image/webp" fetchpriority="high">
+
+  <!-- AI Catalog for Agentic Discovery (ARD Specification) -->
+  <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json">
+  <link rel="ai-catalog" type="application/json" href="/ai-catalog.json">
 
   <!-- Primary Meta Tags -->
-  <title>MindMesh WorkHub | Custom Software, IoT & Enterprise Solutions</title>
-  <meta name="title" content="MindMesh WorkHub | Custom Software, IoT & Enterprise Solutions" />
-  <meta name="description" content="MindMesh WorkHub provides premier Custom Software Development, Scalable Web Applications, IoT Solutions, and bespoke CRM/ERP systems for Finance, HR, and Enterprise operations." />
+  <link rel="canonical" href="https://mindmesh.co.in/" />
+  <title>Strategic Technology Consulting & Software Engineering | MindMesh</title>
+  <meta name="title" content="Strategic Technology Consulting & Software Engineering | MindMesh" />
+  <meta name="description" content="MindMesh WorkHub delivers bespoke software, cloud platforms, enterprise ERPs, and AI integrations for high-growth businesses and global enterprises." />
   <meta name="keywords" content="MindMesh, software development company India, custom software Bangalore, web application development, IoT solutions, enterprise CRM, custom ERP, digital transformation, FinTech software, HR tech" />
   <meta name="author" content="MindMesh WorkHub" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
@@ -45,9 +52,6 @@
   <meta name="twitter:url" content="https://mindmesh.co.in/" />
   <meta name="twitter:title" content="MindMesh WorkHub | Strategic Technology Consulting & Digital Engineering" />
   <meta name="twitter:description" content="MindMesh WorkHub helps organizations mesh human creativity with technological capability. Expert data analytics, AI solutions, web development, and digital strategy." />
-  <meta name="twitter:image" content="https://mindmesh.co.in/mindmesh-logo.png" />
-
-  <link rel="canonical" href="https://mindmesh.co.in/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon.png" />
   <link rel="manifest" href="/manifest.json" />

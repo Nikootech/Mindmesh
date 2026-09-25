@@ -15,9 +15,33 @@ const SEO = ({
   const siteName = "MindMesh WorkHub";
   const defaultTitle = "MindMesh WorkHub | Strategic Technology Consulting & Digital Engineering";
   const finalTitle = title ? (title.includes('MindMesh') ? title : `${title} | ${siteName}`) : defaultTitle;
-  const finalDescription = description || "MindMesh WorkHub delivers high-performance custom software, IoT solutions, web applications, and custom CRM/ERP platforms for Finance, HR, and Enterprise industries.";
+  const finalDescription = description || "MindMesh WorkHub delivers bespoke software, cloud platforms, enterprise ERPs, and AI integrations for high-growth businesses and global enterprises.";
   const finalImage = image || "https://mindmesh.co.in/mindmesh-logo.png";
-  const finalUrl = url || "https://mindmesh.co.in/";
+  
+  // Dynamic canonical support: on localhost matches window.location; on root path strictly resolves to official domain root; on subpages resolves to specific canonical
+  const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+  const isRoot = typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname === '');
+  const finalUrl = isLocalhost
+    ? `${window.location.protocol}//${window.location.host}${window.location.pathname}`
+    : (isRoot ? "https://mindmesh.co.in/" : (url || "https://mindmesh.co.in/"));
+
+  // Ensure strictly one canonical link tag in document.head
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const canonicals = document.querySelectorAll('link[rel="canonical"]');
+      if (canonicals.length > 0) {
+        canonicals[0].setAttribute('href', finalUrl);
+        for (let i = 1; i < canonicals.length; i++) {
+          canonicals[i].remove();
+        }
+      } else {
+        const link = document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        link.setAttribute('href', finalUrl);
+        document.head.appendChild(link);
+      }
+    }
+  }, [finalUrl]);
 
   // Build combined JSON-LD Schema Graph for AEO & SEO
   const schemaGraph = [];
@@ -72,7 +96,6 @@ const SEO = ({
       <meta name="description" content={finalDescription} />
       {keywords && <meta name="keywords" content={keywords} />}
       <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-      <link rel="canonical" href={finalUrl} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:site_name" content={siteName} />

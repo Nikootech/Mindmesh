@@ -516,8 +516,8 @@ const ServicesOverview = () => {
         </section>
 
         {/* Requirements Wizard */}
-        <section className="py-24 bg-muted/30">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="requirement-wizard" className="py-24 bg-muted/30 scroll-mt-24">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <RequirementWizard />
           </div>
         </section>

@@ -1,5 +1,3 @@
-import { supabase } from './supabaseClient.js';
-
 const ADMIN_PRIMARY_EMAIL = 'paul@mindmesh.co.in';
 const ADMIN_CC_EMAIL = 'sudhan@mindmesh.co.in';
 
@@ -104,9 +102,11 @@ export async function submitConsultationLead(formData, estimate = null) {
   }
 
   // 4. Background Supabase attempt (safely wrapped so missing tables/offline DB never blocks user)
-  if (supabase) {
-    try {
-      await supabase.from('consultations').insert([{
+  try {
+    const { getSupabase } = await import('./supabaseClient.js');
+    const sb = await getSupabase();
+    if (sb) {
+      await sb.from('consultations').insert([{
         name: formData?.name,
         email: formData?.email,
         company: formData?.company,
@@ -124,9 +124,9 @@ export async function submitConsultationLead(formData, estimate = null) {
         max_estimate: estimate?.max,
         complexity: estimate?.complexity
       }]);
-    } catch (dbErr) {
-      console.warn('Supabase sync skipped (offline or unconfigured):', dbErr?.message);
     }
+  } catch (dbErr) {
+    console.warn('Supabase sync skipped (offline or unconfigured):', dbErr?.message);
   }
 
   return {

@@ -108,10 +108,10 @@ const PrivacyPolicy = () => {
                     <h4 className="text-xs font-bold text-primary uppercase mb-1">Need Clarification?</h4>
                     <p className="text-xs text-muted-foreground mb-3">Our dedicated Data Protection team is available to assist.</p>
                     <a
-                      href="mailto:Deepika@mindmesh.co.in"
+                      href="mailto:info@mindmesh.co.in"
                       className="inline-flex items-center space-x-1 text-xs font-semibold text-primary hover:underline"
                     >
-                      <span>Deepika@mindmesh.co.in</span>
+                      <span>info@mindmesh.co.in</span>
                       <Icon name="ArrowUpRight" size={12} />
                     </a>
                   </div>

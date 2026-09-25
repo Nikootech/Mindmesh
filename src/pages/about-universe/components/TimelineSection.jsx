@@ -77,7 +77,7 @@ const TimelineSection = () => {
       tag: "Global Footprint",
       title: "Global Reach & AI Ecosystem",
       description: "Expanded our reach into international markets, rolling out proprietary AI-driven workflows and establishing strategic enterprise partnerships.",
-      icon: "Globe",
+      icon: "Cpu",
       color: "primary"
     },
     {
@@ -85,7 +85,7 @@ const TimelineSection = () => {
       tag: "Next Horizon",
       title: "Sustainable Innovation & Scale",
       description: "Pioneering human-centered intelligent automation, green computing practices, and next-generation cloud architectures worldwide.",
-      icon: "Sparkles",
+      icon: "TrendingUp",
       color: "secondary"
     }
   ];

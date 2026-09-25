@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
-import { supabase } from '../../../lib/supabaseClient';
 
 const CTASection = () => {
   const [email, setEmail] = useState('');
@@ -38,11 +37,13 @@ const CTASection = () => {
         } catch (e) {}
 
         // Attempt Supabase if available
-        if (supabase) {
-          try {
-            await supabase.from('newsletter_subs').insert([{ email, source: 'homepage_footer' }]);
-          } catch (e) {}
-        }
+        try {
+          const { getSupabase } = await import('../../../lib/supabaseClient');
+          const sb = await getSupabase();
+          if (sb) {
+            await sb.from('newsletter_subs').insert([{ email, source: 'homepage_footer' }]);
+          }
+        } catch (e) {}
 
         setIsSubscribed(true);
         setEmail('');
@@ -277,7 +278,7 @@ const CTASection = () => {
               <Icon name="Mail" size={20} className="text-secondary" />
             </div>
             <h4 className="font-semibold text-foreground">Email Us</h4>
-            <p className="text-muted-foreground">Deepika@mindmesh.co.in</p>
+            <a href="mailto:info@mindmesh.co.in" className="text-muted-foreground hover:text-primary transition-colors">info@mindmesh.co.in</a>
             <p className="text-sm text-muted-foreground">24-hour response time</p>
           </div>
 

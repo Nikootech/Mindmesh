@@ -563,9 +563,9 @@ const SolutionsGallery = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="mt-16 bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h2>
-            <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+          <div className="mt-16 bg-[#1E40AF] bg-gradient-to-r from-primary to-secondary rounded-2xl p-8 text-center text-white shadow-xl">
+            <h2 className="text-2xl font-bold mb-4 text-white">Ready to Start Your Project?</h2>
+            <p className="text-lg text-white/95 mb-6 max-w-2xl mx-auto">
               Let's discuss how we can help you achieve similar success with your digital transformation journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -575,7 +575,7 @@ const SolutionsGallery = () => {
                   size="lg"
                   iconName="MessageCircle"
                   iconPosition="left"
-                  className="bg-white text-primary hover:bg-gray-50"
+                  className="bg-white text-primary hover:bg-gray-100 font-semibold shadow-md"
                 >
                   Start Your Project
                 </Button>
@@ -586,7 +586,7 @@ const SolutionsGallery = () => {
                   size="lg"
                   iconName="ArrowRight"
                   iconPosition="right"
-                  className="border-white text-white hover:bg-white hover:text-primary"
+                  className="border-2 border-white bg-black/20 text-white hover:bg-white hover:text-primary font-semibold"
                 >
                   View Our Services
                 </Button>

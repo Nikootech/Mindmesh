@@ -8,10 +8,10 @@ const ProjectCard = ({ project, onViewDetails }) => {
 
   const getComplexityColor = (level) => {
     switch (level) {
-      case 'Simple': return 'bg-green-100 text-green-800';
-      case 'Medium': return 'bg-yellow-100 text-yellow-800';
-      case 'Complex': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Simple': return 'bg-emerald-100 text-emerald-900';
+      case 'Medium': return 'bg-amber-100 text-amber-900';
+      case 'Complex': return 'bg-red-100 text-red-900';
+      default: return 'bg-gray-100 text-gray-900';
     }
   };
 
@@ -31,27 +31,34 @@ const ProjectCard = ({ project, onViewDetails }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Project Image */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden bg-gray-100">
         <Image
           src={project?.image}
           alt={project?.title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          width="800"
+          height="600"
+          loading="lazy"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Hover Overlay */}
-        <div className={`absolute inset-0 bg-primary/90 flex items-center justify-center transition-all duration-300 ${
-          isHovered ? 'opacity-100' : 'opacity-0'
-        }`}>
+        <div 
+          aria-hidden={!isHovered}
+          className={`absolute inset-0 bg-primary/95 flex items-center justify-center transition-all duration-300 ${
+            isHovered ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
+        >
           <div className="text-center text-white">
             <Icon name="Eye" size={32} className="mx-auto mb-2" />
-            <p className="text-sm font-medium">View Details</p>
+            <p className="text-sm font-semibold tracking-wide text-white">View Details</p>
           </div>
         </div>
 
         {/* Complexity Badge */}
         <div className="absolute top-3 right-3">
-          <span className={`px-2 py-1 rounded-full text-xs font-medium ${getComplexityColor(project?.complexity)}`}>
+          <span className={`px-2 py-1 rounded-full text-xs font-semibold ${getComplexityColor(project?.complexity)}`}>
             {project?.complexity}
           </span>
         </div>
@@ -59,7 +66,7 @@ const ProjectCard = ({ project, onViewDetails }) => {
         {/* Live Preview Badge */}
         {project?.hasLivePreview && (
           <div className="absolute top-3 left-3">
-            <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-500 text-white flex items-center space-x-1">
+            <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-800 text-white flex items-center space-x-1 shadow-sm">
               <Icon name="Globe" size={12} />
               <span>Live</span>
             </span>

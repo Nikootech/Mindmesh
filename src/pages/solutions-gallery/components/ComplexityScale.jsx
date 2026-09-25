@@ -67,25 +67,25 @@ const ComplexityScale = () => {
   const getColorClasses = (color, isSelected = false) => {
     const colors = {
       green: {
-        bg: isSelected ? 'bg-green-50' : 'bg-white',
-        border: isSelected ? 'border-green-500' : 'border-green-200',
-        text: 'text-green-800',
-        accent: 'bg-green-100',
-        icon: 'text-green-600'
+        bg: isSelected ? 'bg-emerald-50' : 'bg-white',
+        border: isSelected ? 'border-emerald-600' : 'border-emerald-200',
+        text: 'text-emerald-900',
+        accent: 'bg-emerald-100',
+        icon: 'text-emerald-700'
       },
       yellow: {
-        bg: isSelected ? 'bg-yellow-50' : 'bg-white',
-        border: isSelected ? 'border-yellow-500' : 'border-yellow-200',
-        text: 'text-yellow-800',
-        accent: 'bg-yellow-100',
-        icon: 'text-yellow-600'
+        bg: isSelected ? 'bg-amber-50' : 'bg-white',
+        border: isSelected ? 'border-amber-600' : 'border-amber-200',
+        text: 'text-amber-900',
+        accent: 'bg-amber-100',
+        icon: 'text-amber-700'
       },
       red: {
         bg: isSelected ? 'bg-red-50' : 'bg-white',
-        border: isSelected ? 'border-red-500' : 'border-red-200',
-        text: 'text-red-800',
+        border: isSelected ? 'border-red-600' : 'border-red-200',
+        text: 'text-red-900',
         accent: 'bg-red-100',
-        icon: 'text-red-600'
+        icon: 'text-red-700'
       }
     };
     return colors?.[color];
@@ -128,15 +128,15 @@ const ComplexityScale = () => {
               {/* Key Metrics */}
               <div className="space-y-3 mb-4">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-500">Duration:</span>
+                  <span className="text-gray-600 font-medium">Duration:</span>
                   <span className="font-medium text-gray-900">{level?.duration}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-500">Team Size:</span>
+                  <span className="text-gray-600 font-medium">Team Size:</span>
                   <span className="font-medium text-gray-900">{level?.teamSize}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-500">Budget Range:</span>
+                  <span className="text-gray-600 font-medium">Budget Range:</span>
                   <span className="font-medium text-gray-900">{level?.budget}</span>
                 </div>
               </div>

@@ -182,7 +182,7 @@ const FAQSection = () => {
               
               <button 
                 onClick={() => {
-                  window.location.href = `mailto:Deepika@mindmesh.co.in?cc=paul@mindmesh.co.in&subject=${encodeURIComponent('Inquiry from MindMesh Website')}`;
+                  window.location.href = `mailto:info@mindmesh.co.in?cc=paul@mindmesh.co.in&subject=${encodeURIComponent('Inquiry from MindMesh Website')}`;
                 }}
                 className="px-6 py-3 border border-border text-foreground rounded-lg font-medium hover:bg-muted/50 transition-colors duration-200 flex items-center justify-center space-x-2"
               >

@@ -10,9 +10,19 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <img src="/mindmesh-logo.png" alt="MindMesh WorkHub" className="h-12 w-auto object-contain rounded-lg" width="160" height="48" />
+              <div className="bg-white px-3 py-2 rounded-xl shadow-md inline-flex items-center justify-center">
+                <img 
+                  src="/mindmesh-logo.webp" 
+                  alt="MindMesh WorkHub" 
+                  className="h-10 w-auto object-contain" 
+                  width="140" 
+                  height="40" 
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
               <div>
-                <h3 className="text-xl font-bold">MindMesh</h3>
+                <h3 className="text-xl font-bold text-white tracking-tight">MindMesh</h3>
                 <p className="text-xs text-background/60 tracking-wider uppercase font-medium">WorkHub Ecosystem</p>
               </div>
             </div>
@@ -94,11 +104,11 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3 text-sm text-background/70">
                 <Icon name="Phone" size={18} className="text-primary flex-shrink-0" />
-                <a href="tel:+918884867171" className="hover:text-primary transition-colors">+91 88848 67171</a>
+                <a href="tel:+918884867171" className="underline underline-offset-2 hover:text-primary transition-colors">+91 88848 67171</a>
               </div>
               <div className="flex items-center space-x-3 text-sm text-background/70">
                 <Icon name="Mail" size={18} className="text-primary flex-shrink-0" />
-                <a href="mailto:Deepika@mindmesh.co.in" className="hover:text-primary transition-colors">Deepika@mindmesh.co.in</a>
+                <a href="mailto:info@mindmesh.co.in" className="underline underline-offset-2 hover:text-primary transition-colors">info@mindmesh.co.in</a>
               </div>
             </div>
             <div className="mt-8">

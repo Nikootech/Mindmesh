@@ -1,0 +1,58 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "MindMesh WorkHub",
+    "identifier": "did:web:mindmesh.co.in",
+    "documentationUrl": "https://mindmesh.co.in/about-universe",
+    "logoUrl": "https://mindmesh.co.in/mindmesh-logo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:mindmesh:services:custom-software",
+      "displayName": "Bespoke Custom Software Development & Enterprise Engineering",
+      "type": "text/html",
+      "url": "https://mindmesh.co.in/services-overview",
+      "description": "End-to-end bespoke software engineering, enterprise cloud architecture, and mission-critical application modernization.",
+      "tags": ["software", "enterprise", "engineering", "cloud", "bangalore"],
+      "capabilities": ["FullStackEngineering", "CloudArchitecture", "DevOpsAutomation", "SystemIntegration"],
+      "representativeQueries": [
+        "custom software development company bangalore",
+        "enterprise cloud platform modernization",
+        "bespoke web application development"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-24T10:00:00Z"
+    },
+    {
+      "identifier": "urn:air:mindmesh:services:ai-iot-solutions",
+      "displayName": "AI Integration & Industrial IoT Platforms",
+      "type": "text/html",
+      "url": "https://mindmesh.co.in/solutions-gallery",
+      "description": "Autonomous AI workflow integration, LLM applications, predictive analytics, and edge-to-cloud IoT architectures.",
+      "tags": ["ai", "iot", "industry4.0", "edge-computing", "machine-learning"],
+      "capabilities": ["GenAIIntegration", "EdgeIoTTelemetry", "PredictiveAnalytics", "ModelServing"],
+      "representativeQueries": [
+        "industrial iot telemetry systems",
+        "enterprise generative ai integration services",
+        "edge computing and smart factory platforms"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-24T10:00:00Z"
+    },
+    {
+      "identifier": "urn:air:mindmesh:api:consultation-endpoint",
+      "displayName": "MindMesh Consultation & Discovery API",
+      "type": "application/json",
+      "url": "https://mindmesh.co.in/api/contact.php",
+      "description": "Direct REST endpoint to schedule strategic technology architecture reviews and consultation requests.",
+      "tags": ["api", "consulting", "scheduling", "advisory"],
+      "capabilities": ["ConsultationBooking", "ArchitectureReviewRequest"],
+      "representativeQueries": [
+        "schedule technology architecture consulting session",
+        "book enterprise software discovery consultation"
+      ],
+      "version": "1.0.0",
+      "updatedAt": "2026-09-24T10:00:00Z"
+    }
+  ]
+}

@@ -20,10 +20,10 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
 
   const getComplexityColor = (level) => {
     switch (level) {
-      case 'Simple': return 'bg-green-100 text-green-800';
-      case 'Medium': return 'bg-yellow-100 text-yellow-800';
-      case 'Complex': return 'bg-red-100 text-red-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'Simple': return 'bg-emerald-100 text-emerald-900';
+      case 'Medium': return 'bg-amber-100 text-amber-900';
+      case 'Complex': return 'bg-red-100 text-red-900';
+      default: return 'bg-gray-100 text-gray-900';
     }
   };
 
@@ -62,11 +62,15 @@ const ProjectModal = ({ project, isOpen, onClose }) => {
           {/* Content */}
           <div className="p-6">
             {/* Project Image */}
-            <div className="mb-8">
+            <div className="mb-8 bg-gray-100 rounded-xl overflow-hidden">
               <Image
                 src={project?.image}
                 alt={project?.title}
                 className="w-full h-64 object-cover rounded-xl"
+                width="1000"
+                height="500"
+                loading="lazy"
+                decoding="async"
               />
             </div>
 

@@ -2,13 +2,12 @@ import React, { useState } from 'react';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
-import Select from '../../../components/ui/Select';
 import { submitConsultationLead } from '../../../lib/leadService';
 
 const RequirementWizard = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    projectType: 'web-app',
+    projectTypes: ['web-app'],
     budget: '5-10',
     timeline: '3-4',
     features: ['user-auth', 'admin-panel'],
@@ -24,107 +23,120 @@ const RequirementWizard = () => {
       value: 'web-app',
       label: 'Web Application',
       icon: 'Globe',
-      description: 'SaaS platforms, client portals & interactive web apps',
-      popular: true
+      description: 'SaaS platforms, client portals & high-performance interactive web apps',
+      badge: 'Popular'
     },
     {
       value: 'mobile-app',
       label: 'Mobile Application',
       icon: 'Smartphone',
-      description: 'Native iOS & Android apps or high-performance cross-platform',
-      popular: false
+      description: 'Native iOS & Android apps or cross-platform Flutter/React Native solutions',
+      badge: null
     },
     {
       value: 'ecommerce',
       label: 'E-commerce Platform',
       icon: 'ShoppingCart',
-      description: 'Multi-vendor marketplaces, storefronts & custom checkouts',
-      popular: false
+      description: 'Multi-vendor marketplaces, storefronts & scalable checkout flows',
+      badge: null
     },
     {
       value: 'enterprise',
       label: 'Enterprise Solution',
       icon: 'Building2',
-      description: 'Custom ERPs, CRMs, internal workflows & cloud migration',
-      popular: true
+      description: 'Custom ERPs, CRMs, internal workforce hubs, and cloud migrations',
+      badge: 'Enterprise'
     },
     {
       value: 'ai-ml',
       label: 'AI & Data Integration',
       icon: 'Cpu',
-      description: 'LLM agents, predictive models & automated data intelligence',
-      popular: false
+      description: 'Autonomous LLM agents, predictive intelligence & custom data pipelines',
+      badge: 'Trending'
     },
     {
       value: 'custom',
       label: 'Custom Software',
       icon: 'Code2',
-      description: 'Bespoke microservices, API engineering & complex backends',
-      popular: false
+      description: 'Bespoke microservices, API architecture & distributed system backends',
+      badge: null
     }
   ];
 
   const budgetRanges = [
-    { value: '2-5', label: '₹2L - ₹5L' },
-    { value: '5-10', label: '₹5L - ₹10L' },
-    { value: '10-25', label: '₹10L - ₹25L' },
-    { value: '25-50', label: '₹25L - ₹50L' },
-    { value: '50+', label: '₹50L+' }
+    { value: '2-5', label: '₹2L - ₹5L', sub: 'Starter MVP' },
+    { value: '5-10', label: '₹5L - ₹10L', sub: 'Growth Scale' },
+    { value: '10-25', label: '₹10L - ₹25L', sub: 'Enterprise Core' },
+    { value: '25-50', label: '₹25L - ₹50L', sub: 'Full Ecosystem' },
+    { value: '50+', label: '₹50L+', sub: 'Bespoke Scale' }
   ];
 
   const timelineOptions = [
-    { value: '1-2', label: '1-2 months' },
-    { value: '3-4', label: '3-4 months' },
-    { value: '5-6', label: '5-6 months' },
-    { value: '6+', label: '6+ months' }
+    { value: '1-2', label: '1 - 2 Months', sub: 'Fast Track' },
+    { value: '3-4', label: '3 - 4 Months', sub: 'Standard MVP' },
+    { value: '5-6', label: '5 - 6 Months', sub: 'Production Scale' },
+    { value: '6+', label: '6+ Months', sub: 'Multi-Phase' }
   ];
 
   const featureOptions = [
-    { value: 'user-auth', label: 'User Authentication', icon: 'Shield' },
-    { value: 'payment', label: 'Payment Integration', icon: 'CreditCard' },
-    { value: 'admin-panel', label: 'Admin Dashboard', icon: 'LayoutDashboard' },
-    { value: 'api-integration', label: 'Third-party APIs', icon: 'Network' },
-    { value: 'real-time', label: 'Real-time Features', icon: 'Zap' },
-    { value: 'analytics', label: 'Analytics & Reporting', icon: 'BarChart3' },
-    { value: 'mobile-responsive', label: 'Mobile Responsive', icon: 'Smartphone' },
-    { value: 'seo', label: 'SEO Optimization', icon: 'Search' }
+    { value: 'user-auth', label: 'User Auth & Role Management', icon: 'Shield' },
+    { value: 'payment', label: 'Payment Gateway Integration', icon: 'CreditCard' },
+    { value: 'admin-panel', label: 'Executive Admin Dashboard', icon: 'LayoutDashboard' },
+    { value: 'api-integration', label: 'Third-party API Ecosystem', icon: 'Network' },
+    { value: 'real-time', label: 'Real-time Sync & WebSockets', icon: 'Zap' },
+    { value: 'analytics', label: 'AI Analytics & Custom Reports', icon: 'BarChart3' },
+    { value: 'mobile-responsive', label: 'Mobile-First & PWA Readiness', icon: 'Smartphone' },
+    { value: 'seo', label: 'Enterprise Security & Speed', icon: 'Lock' }
   ];
 
   const steps = [
     { number: 1, title: 'Project Type', icon: 'Layers' },
-    { number: 2, title: 'Requirements', icon: 'Settings' },
-    { number: 3, title: 'Contact Info', icon: 'User' },
-    { number: 4, title: 'Estimate', icon: 'Calculator' }
+    { number: 2, title: 'Scope & Budget', icon: 'Sliders' },
+    { number: 3, title: 'Contact Info', icon: 'UserCheck' },
+    { number: 4, title: 'Blueprint', icon: 'Calculator' }
   ];
+
+  const toggleProjectType = (val) => {
+    const current = formData?.projectTypes || ['web-app'];
+    if (current.includes(val)) {
+      if (current.length > 1) {
+        setFormData({ ...formData, projectTypes: current.filter(t => t !== val) });
+      }
+    } else {
+      setFormData({ ...formData, projectTypes: [...current, val] });
+    }
+  };
+
+  const selectedLabels = projectTypes
+    .filter(t => (formData?.projectTypes || ['web-app']).includes(t.value))
+    .map(t => t.label);
 
   const handleNext = async () => {
     if (currentStep < 4) {
-      if (currentStep === 3) {
+      if (currentStep === 2) {
         generateEstimate();
       }
-      setCurrentStep(currentStep + 1);
-    } else if (currentStep === 4) {
-      setIsSubmitting(true);
-      try {
-        await submitConsultationLead({
-          name: formData.company || 'Requirement Wizard Lead',
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          projectType: formData.projectType,
-          budget: formData.budget,
-          timeline: formData.timeline,
-          features: formData.features,
-          description: `Requirement Wizard Proposal: ${formData.features?.length || 0} features selected.`
-        }, estimate);
-
-        alert("Thank you! Your project proposal has been submitted. Our engineering team will review it and email you within 2 hours.");
-      } catch (err) {
-        console.error(err);
-        alert("Thank you! Your proposal details have been received.");
-      } finally {
-        setIsSubmitting(false);
+      if (currentStep === 3) {
+        generateEstimate();
+        setIsSubmitting(true);
+        try {
+          await submitConsultationLead({
+            name: formData?.company || 'Prospective Client',
+            email: formData?.email,
+            phone: formData?.phone,
+            company: formData?.company,
+            service: selectedLabels.join(' + '),
+            budget: budgetRanges.find(b => b.value === formData?.budget)?.label || formData?.budget,
+            timeline: timelineOptions.find(t => t.value === formData?.timeline)?.label || formData?.timeline,
+            notes: `Project types: ${selectedLabels.join(', ')}. Features: ${formData?.features?.join(', ') || 'Standard scope'}`
+          });
+        } catch (err) {
+          console.error('Lead submission error:', err);
+        } finally {
+          setIsSubmitting(false);
+        }
       }
+      setCurrentStep(currentStep + 1);
     }
   };
 
@@ -135,7 +147,6 @@ const RequirementWizard = () => {
   };
 
   const generateEstimate = () => {
-    // Estimation logic
     const basePrice = {
       'web-app': 500000,
       'mobile-app': 600000,
@@ -160,82 +171,95 @@ const RequirementWizard = () => {
       '6+': 0.8
     };
 
-    const base = basePrice?.[formData?.projectType] || 500000;
+    const types = formData?.projectTypes || ['web-app'];
+    const rawSum = types.reduce((acc, t) => acc + (basePrice[t] || 500000), 0);
+    const bundleSynergyDiscount = types.length > 1 ? 0.85 : 1.0;
+    const base = rawSum * bundleSynergyDiscount;
+
     const budgetFactor = budgetMultiplier?.[formData?.budget] || 1.0;
     const timelineFactor = timelineMultiplier?.[formData?.timeline] || 1.0;
-    const featureFactor = 1 + ((formData?.features?.length || 0) * 0.12);
+    const featureFactor = 1 + ((formData?.features?.length || 0) * 0.10);
 
     const estimatedCost = Math.round(base * budgetFactor * timelineFactor * featureFactor);
-    const estimatedTimeline = Math.max(6, Math.round(estimatedCost / 120000));
+    const estimatedTimeline = Math.max(6, Math.round(estimatedCost / 130000));
 
     setEstimate({
       cost: estimatedCost,
       timeline: estimatedTimeline,
-      teamSize: Math.ceil(estimatedCost / 500000) + 2
+      teamSize: Math.ceil(estimatedCost / 550000) + 2
     });
   };
-
-  const selectedTypeObj = projectTypes.find(t => t.value === formData?.projectType) || projectTypes[0];
 
   const renderStepContent = () => {
     switch (currentStep) {
       case 1:
         return (
-          <div className="space-y-6">
-            <div className="text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                What type of project are you planning?
-              </h3>
-              <p className="text-sm text-muted-foreground">
-                Select a project category below to tailor your technology stack, timeline, and accurate investment estimate.
-              </p>
+          <div className="space-y-4">
+            {/* Step Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 pb-1">
+              <div>
+                <h3 className="text-lg sm:text-xl font-extrabold text-foreground tracking-tight">
+                  What type of project are you planning?
+                </h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">
+                  Select <strong className="text-primary font-semibold">one or multiple</strong> solution categories that match your vision.
+                </p>
+              </div>
+              <div className="inline-flex items-center space-x-1.5 self-start sm:self-auto bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold">
+                <Icon name="CheckCircle2" size={13} />
+                <span>{(formData?.projectTypes || []).length} Selected</span>
+              </div>
             </div>
 
-            {/* Interactive 6-Card Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {/* Compact 6-Card Interactive Multi-Select Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {projectTypes.map((type) => {
-                const isSelected = formData?.projectType === type.value;
+                const isSelected = (formData?.projectTypes || []).includes(type.value);
                 return (
                   <button
                     key={type.value}
                     type="button"
-                    onClick={() => setFormData({ ...formData, projectType: type.value })}
-                    className={`relative text-left p-5 rounded-2xl border-2 transition-all duration-200 hover:-translate-y-1 flex flex-col justify-between ${
+                    onClick={() => toggleProjectType(type.value)}
+                    className={`group relative text-left p-3.5 sm:p-4 rounded-xl border transition-all duration-200 flex flex-col justify-between cursor-pointer ${
                       isSelected
-                        ? 'border-primary bg-primary/5 shadow-md ring-2 ring-primary/20'
-                        : 'border-border/80 bg-card hover:border-primary/40 hover:bg-muted/30 shadow-sm'
+                        ? 'border-primary bg-primary/[0.07] ring-2 ring-primary/40 shadow-sm'
+                        : 'border-border bg-card hover:border-primary/40 hover:bg-muted/30'
                     }`}
                   >
-                    {type.popular && (
-                      <span className="absolute top-3.5 right-3.5 text-[10px] font-bold uppercase tracking-wider bg-primary/10 text-primary px-2.5 py-0.5 rounded-full border border-primary/20">
-                        Popular
-                      </span>
-                    )}
-
-                    <div className="mb-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3.5 transition-colors ${
-                        isSelected ? 'bg-primary text-white shadow-sm' : 'bg-muted text-foreground'
-                      }`}>
-                        <Icon name={type.icon} size={22} />
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div className="flex items-center space-x-2.5 min-w-0">
+                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-all ${
+                          isSelected 
+                            ? 'bg-primary text-white shadow-sm' 
+                            : 'bg-muted text-foreground group-hover:bg-primary/10 group-hover:text-primary'
+                        }`}>
+                          <Icon name={type.icon} size={18} strokeWidth={2} />
+                        </div>
+                        <div className="min-w-0">
+                          <h4 className={`font-bold text-sm truncate ${isSelected ? 'text-primary' : 'text-foreground'}`}>
+                            {type.label}
+                          </h4>
+                          {type.badge && (
+                            <span className="inline-block text-[9px] font-black uppercase tracking-wider bg-secondary/15 text-secondary px-1.5 py-0.2 rounded font-mono">
+                              {type.badge}
+                            </span>
+                          )}
+                        </div>
                       </div>
-                      <h4 className="font-bold text-foreground text-base mb-1.5">
-                        {type.label}
-                      </h4>
-                      <p className="text-xs text-muted-foreground leading-relaxed">
-                        {type.description}
-                      </p>
-                    </div>
 
-                    <div className="flex items-center justify-between pt-3 border-t border-border/60 text-xs font-semibold">
-                      <span className={isSelected ? 'text-primary font-bold' : 'text-muted-foreground'}>
-                        {isSelected ? 'Selected' : 'Choose Plan'}
-                      </span>
-                      <div className={`w-5 h-5 rounded-full flex items-center justify-center border transition-all ${
-                        isSelected ? 'bg-primary border-primary text-white' : 'border-border bg-background'
+                      {/* Multi-Select Checkbox Box */}
+                      <div className={`w-5 h-5 rounded-lg flex items-center justify-center border flex-shrink-0 transition-all ${
+                        isSelected 
+                          ? 'bg-primary border-primary text-white shadow-sm' 
+                          : 'border-border bg-background group-hover:border-primary/50'
                       }`}>
                         {isSelected && <Icon name="Check" size={12} strokeWidth={3} />}
                       </div>
                     </div>
+
+                    <p className="text-[11px] sm:text-xs text-muted-foreground leading-snug line-clamp-2">
+                      {type.description}
+                    </p>
                   </button>
                 );
               })}
@@ -245,22 +269,22 @@ const RequirementWizard = () => {
 
       case 2:
         return (
-          <div className="space-y-6">
-            <div className="text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                Define Your Budget & Requirements
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-foreground tracking-tight">
+                Define Scope &amp; Target Budget
               </h3>
-              <p className="text-sm text-muted-foreground">
-                Help us size the resources, infrastructure, and delivery roadmap for your {selectedTypeObj?.label}.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Configuring: <strong className="text-primary">{selectedLabels.join(' + ')}</strong>
               </p>
             </div>
 
             {/* Budget Range Pills */}
             <div>
-              <label className="block text-sm font-semibold text-foreground mb-2.5">
+              <label className="block text-xs font-bold text-foreground uppercase tracking-wider mb-2">
                 Estimated Budget Range
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5">
                 {budgetRanges.map((range) => {
                   const isSelected = formData?.budget === range.value;
                   return (
@@ -268,13 +292,18 @@ const RequirementWizard = () => {
                       key={range.value}
                       type="button"
                       onClick={() => setFormData({ ...formData, budget: range.value })}
-                      className={`px-3 py-3 rounded-xl border text-sm font-semibold transition-all ${
+                      className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
                         isSelected
-                          ? 'border-primary bg-primary text-white shadow-md'
+                          ? 'border-primary bg-primary text-white shadow-sm'
                           : 'border-border bg-card text-foreground hover:border-primary/40 hover:bg-muted/40'
                       }`}
                     >
-                      {range.label}
+                      <div className={`text-xs sm:text-sm font-bold ${isSelected ? 'text-white' : 'text-foreground'}`}>
+                        {range.label}
+                      </div>
+                      <div className={`text-[10px] ${isSelected ? 'text-white/80' : 'text-muted-foreground'}`}>
+                        {range.sub}
+                      </div>
                     </button>
                   );
                 })}
@@ -283,10 +312,10 @@ const RequirementWizard = () => {
 
             {/* Timeline Pills */}
             <div>
-              <label className="block text-sm font-semibold text-foreground mb-2.5">
+              <label className="block text-xs font-bold text-foreground uppercase tracking-wider mb-2">
                 Target Launch Timeline
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                 {timelineOptions.map((timeline) => {
                   const isSelected = formData?.timeline === timeline.value;
                   return (
@@ -294,13 +323,18 @@ const RequirementWizard = () => {
                       key={timeline.value}
                       type="button"
                       onClick={() => setFormData({ ...formData, timeline: timeline.value })}
-                      className={`px-3 py-3 rounded-xl border text-sm font-semibold transition-all ${
+                      className={`p-2.5 rounded-xl border text-center transition-all cursor-pointer ${
                         isSelected
-                          ? 'border-primary bg-primary text-white shadow-md'
-                          : 'border-border bg-card text-foreground hover:border-primary/40 hover:bg-muted/40'
+                          ? 'border-secondary bg-secondary text-white shadow-sm'
+                          : 'border-border bg-card text-foreground hover:border-secondary/40 hover:bg-muted/40'
                       }`}
                     >
-                      {timeline.label}
+                      <div className={`text-xs sm:text-sm font-bold ${isSelected ? 'text-white' : 'text-foreground'}`}>
+                        {timeline.label}
+                      </div>
+                      <div className={`text-[10px] ${isSelected ? 'text-white/80' : 'text-muted-foreground'}`}>
+                        {timeline.sub}
+                      </div>
                     </button>
                   );
                 })}
@@ -309,10 +343,10 @@ const RequirementWizard = () => {
 
             {/* Feature Options Grid */}
             <div>
-              <label className="block text-sm font-semibold text-foreground mb-2.5">
-                Key Features Required (Select all that apply)
+              <label className="block text-xs font-bold text-foreground uppercase tracking-wider mb-2">
+                Key Technical Capabilities
               </label>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
                 {featureOptions?.map((feature) => {
                   const isSelected = formData?.features?.includes(feature?.value);
                   return (
@@ -332,18 +366,18 @@ const RequirementWizard = () => {
                           });
                         }
                       }}
-                      className={`flex items-center space-x-2.5 p-3 rounded-xl border text-left transition-all ${
+                      className={`flex items-center space-x-2.5 p-2.5 rounded-xl border text-left transition-all cursor-pointer ${
                         isSelected
-                          ? 'border-primary bg-primary/5 text-foreground ring-1 ring-primary/20 shadow-sm'
-                          : 'border-border bg-card text-muted-foreground hover:border-border/80 hover:bg-muted/30'
+                          ? 'border-primary bg-primary/10 text-foreground ring-1 ring-primary/20 shadow-sm'
+                          : 'border-border bg-card text-muted-foreground hover:border-border hover:bg-muted/30 hover:text-foreground'
                       }`}
                     >
-                      <div className={`w-4 h-4 rounded flex items-center justify-center border flex-shrink-0 ${
-                        isSelected ? 'bg-primary border-primary text-white' : 'border-border'
+                      <div className={`w-4 h-4 rounded-md flex items-center justify-center border flex-shrink-0 ${
+                        isSelected ? 'bg-primary border-primary text-white' : 'border-border bg-background'
                       }`}>
                         {isSelected && <Icon name="Check" size={11} strokeWidth={3} />}
                       </div>
-                      <span className="text-xs sm:text-sm font-medium">{feature?.label}</span>
+                      <span className="text-xs font-semibold text-foreground truncate">{feature?.label}</span>
                     </button>
                   );
                 })}
@@ -354,19 +388,18 @@ const RequirementWizard = () => {
 
       case 3:
         return (
-          <div className="space-y-6">
-            <div className="text-center sm:text-left">
-              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-2">
-                Where should we send your estimate?
+          <div className="space-y-4">
+            <div>
+              <h3 className="text-lg sm:text-xl font-extrabold text-foreground tracking-tight">
+                Where should we send your preliminary estimate?
               </h3>
-              <p className="text-sm text-muted-foreground">
-                Enter your details to generate your preliminary budget, timeline, and team allocation.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Enter your contact info to instantly generate your cost, delivery timeline, and dedicated pod breakdown.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
-              {/* Form Inputs */}
-              <div className="lg:col-span-2 space-y-4">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
+              <div className="lg:col-span-2 space-y-3">
                 <Input
                   label="Company / Startup Name"
                   type="text"
@@ -374,7 +407,7 @@ const RequirementWizard = () => {
                   onChange={(e) => setFormData({ ...formData, company: e?.target?.value })}
                   placeholder="e.g. Acme Tech Solutions"
                 />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Input
                     label="Business Email Address"
                     type="email"
@@ -394,15 +427,16 @@ const RequirementWizard = () => {
                 </div>
               </div>
 
-              {/* Live Configuration Summary Card */}
-              <div className="bg-muted/40 rounded-2xl border border-border p-5 space-y-4">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
-                  Configuration Summary
-                </h4>
-                <div className="space-y-2.5 text-xs sm:text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Project:</span>
-                    <span className="font-bold text-foreground">{selectedTypeObj?.label}</span>
+              {/* Summary Widget */}
+              <div className="bg-muted/40 rounded-xl border border-border p-4 space-y-3 text-xs">
+                <div className="font-bold text-foreground uppercase tracking-wider pb-2 border-b border-border/60 flex items-center justify-between">
+                  <span>Configuration</span>
+                  <span className="text-[10px] text-primary bg-primary/10 px-2 py-0.5 rounded-full font-bold">Summary</span>
+                </div>
+                <div className="space-y-2">
+                  <div>
+                    <span className="text-muted-foreground block text-[11px]">Selected Solution(s):</span>
+                    <span className="font-bold text-foreground">{selectedLabels.join(', ')}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Budget:</span>
@@ -416,23 +450,10 @@ const RequirementWizard = () => {
                       {timelineOptions.find(t => t.value === formData?.timeline)?.label || 'Not set'}
                     </span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground">Features:</span>
-                    <span className="font-semibold text-foreground">
-                      {formData?.features?.length || 0} selected
-                    </span>
-                  </div>
                 </div>
-
-                <div className="pt-3 border-t border-border/60 text-xs text-muted-foreground space-y-1.5">
-                  <div className="flex items-center space-x-1.5 text-success">
-                    <Icon name="ShieldCheck" size={14} />
-                    <span className="font-medium">100% Confidential & NDA Protected</span>
-                  </div>
-                  <div className="flex items-center space-x-1.5 text-muted-foreground">
-                    <Icon name="Clock" size={14} />
-                    <span>Instant breakdown on next screen</span>
-                  </div>
+                <div className="pt-2 border-t border-border/60 text-[11px] text-success flex items-center space-x-1.5 font-semibold">
+                  <Icon name="ShieldCheck" size={14} />
+                  <span>100% Confidential &amp; NDA Covered</span>
                 </div>
               </div>
             </div>
@@ -441,70 +462,58 @@ const RequirementWizard = () => {
 
       case 4:
         return (
-          <div className="space-y-6">
-            <div className="text-center">
-              <div className="inline-flex items-center space-x-2 bg-success/10 text-success px-3.5 py-1.5 rounded-full text-xs font-semibold mb-3">
-                <Icon name="CheckCircle2" size={16} />
-                <span>Estimate Ready</span>
+          <div className="space-y-4">
+            <div className="text-center max-w-xl mx-auto">
+              <div className="inline-flex items-center space-x-1.5 bg-success/10 text-success px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
+                <Icon name="CheckCircle2" size={14} />
+                <span>Estimate Blueprint Ready</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-2">
-                Your Preliminary Project Estimate
+              <h3 className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+                Preliminary Delivery &amp; Investment Plan
               </h3>
-              <p className="text-sm text-muted-foreground max-w-xl mx-auto">
-                Based on your selected requirements for <strong>{selectedTypeObj?.label}</strong>, here is our preliminary delivery plan.
+              <p className="text-xs sm:text-sm text-muted-foreground">
+                Tailored for: <strong className="text-foreground">{selectedLabels.join(' + ')}</strong>
               </p>
             </div>
 
             {estimate && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center p-6 bg-primary/5 rounded-2xl border border-primary/20 shadow-sm">
-                  <Icon name="IndianRupee" size={32} className="text-primary mx-auto mb-2" />
-                  <div className="text-3xl font-black text-primary mb-1">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="text-center p-4 bg-primary/5 rounded-2xl border border-primary/20 shadow-sm">
+                  <Icon name="IndianRupee" size={20} className="text-primary mx-auto mb-1" />
+                  <div className="text-2xl sm:text-3xl font-black text-primary mb-0.5">
                     ₹{(estimate?.cost / 100000)?.toFixed(1)}L
                   </div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                     Estimated Investment
                   </div>
                 </div>
-                <div className="text-center p-6 bg-secondary/5 rounded-2xl border border-secondary/20 shadow-sm">
-                  <Icon name="Calendar" size={32} className="text-secondary mx-auto mb-2" />
-                  <div className="text-3xl font-black text-secondary mb-1">
+                <div className="text-center p-4 bg-secondary/5 rounded-2xl border border-secondary/20 shadow-sm">
+                  <Icon name="Calendar" size={20} className="text-secondary mx-auto mb-1" />
+                  <div className="text-2xl sm:text-3xl font-black text-secondary mb-0.5">
                     {estimate?.timeline} weeks
                   </div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                  <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
                     Project Timeline
                   </div>
                 </div>
-                <div className="text-center p-6 bg-accent/5 rounded-2xl border border-accent/20 shadow-sm">
-                  <Icon name="Users" size={32} className="text-accent mx-auto mb-2" />
-                  <div className="text-3xl font-black text-accent mb-1">
+                <div className="text-center p-4 bg-accent/5 rounded-2xl border border-accent/20 shadow-sm">
+                  <Icon name="Users" size={20} className="text-accent mx-auto mb-1" />
+                  <div className="text-2xl sm:text-3xl font-black text-accent mb-0.5">
                     {estimate?.teamSize} experts
                   </div>
-                  <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                    Dedicated Team Size
+                  <div className="text-[11px] font-bold text-muted-foreground uppercase tracking-wider">
+                    Engineering Pod
                   </div>
                 </div>
               </div>
             )}
 
-            <div className="bg-muted/30 rounded-2xl p-6 border border-border">
-              <h4 className="font-bold text-foreground text-sm uppercase tracking-wider mb-3">
-                Included Deliverables & Next Steps
-              </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs sm:text-sm text-muted-foreground">
-                <div className="flex items-center space-x-2">
-                  <Icon name="Check" size={16} className="text-success flex-shrink-0" />
-                  <span>Comprehensive architectural blueprint</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Icon name="Check" size={16} className="text-success flex-shrink-0" />
-                  <span>Free 30-min technical consultation</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Icon name="Check" size={16} className="text-success flex-shrink-0" />
-                  <span>Detailed milestone-based quote</span>
-                </div>
+            <div className="bg-muted/30 rounded-xl p-3.5 border border-border text-xs sm:text-sm text-muted-foreground flex flex-col sm:flex-row items-center justify-between gap-2">
+              <div className="flex items-center space-x-2 text-foreground font-semibold">
+                <Icon name="CheckCircle2" size={16} className="text-success flex-shrink-0" />
+                <span>Includes architecture blueprint + free 30-min strategy review</span>
               </div>
+              <span className="text-xs text-primary font-bold">Bangalore Leadership Pod</span>
             </div>
           </div>
         );
@@ -517,7 +526,7 @@ const RequirementWizard = () => {
   const canProceed = () => {
     switch (currentStep) {
       case 1:
-        return !!formData?.projectType;
+        return (formData?.projectTypes || []).length > 0;
       case 2:
         return !!formData?.budget && !!formData?.timeline;
       case 3:
@@ -528,69 +537,81 @@ const RequirementWizard = () => {
   };
 
   return (
-    <div className="bg-card rounded-3xl border border-border shadow-soft p-6 sm:p-10 max-w-5xl mx-auto">
-      {/* Wizard Header */}
-      <div className="mb-8">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-foreground mb-6 text-center tracking-tight">
-          Get Your Project Estimate
-        </h2>
+    <div className="bg-card/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-border shadow-xl p-5 sm:p-7 max-w-5xl mx-auto overflow-hidden">
+      {/* Compact Header & Integrated Stepper */}
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-5 mb-5 border-b border-border/70 gap-4">
+        <div>
+          <h2 className="text-xl sm:text-2xl font-extrabold text-foreground tracking-tight">
+            Project Scope &amp; Estimation Wizard
+          </h2>
+          <p className="text-xs text-muted-foreground">
+            Configure your technical deliverables to generate accurate budget &amp; timelines.
+          </p>
+        </div>
 
-        {/* Stepper Navigation */}
-        <div className="flex items-center justify-center space-x-2 sm:space-x-4 mb-4">
-          {steps?.map((step, index) => (
-            <div key={step?.number} className="flex items-center">
-              <div
-                className={`w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all ${
-                  currentStep >= step?.number
-                    ? 'bg-primary text-white shadow-sm'
-                    : 'bg-muted text-muted-foreground'
-                }`}
-              >
-                <Icon name={step?.icon} size={18} />
-              </div>
-              <div className="ml-2 hidden md:block">
-                <div className={`text-xs sm:text-sm font-semibold ${
-                  currentStep >= step?.number ? 'text-primary' : 'text-muted-foreground'
-                }`}>
-                  {step?.title}
+        {/* Compact Stepper Track */}
+        <div className="flex items-center space-x-1.5 sm:space-x-2">
+          {steps?.map((step, index) => {
+            const isCompleted = currentStep > step?.number;
+            const isCurrent = currentStep === step?.number;
+            return (
+              <React.Fragment key={step?.number}>
+                <div 
+                  className={`flex items-center space-x-1.5 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                    isCurrent
+                      ? 'bg-primary text-white shadow-sm ring-2 ring-primary/20'
+                      : isCompleted
+                      ? 'bg-success/15 text-success'
+                      : 'bg-muted text-muted-foreground'
+                  }`}
+                >
+                  {isCompleted ? (
+                    <Icon name="Check" size={12} strokeWidth={3} />
+                  ) : (
+                    <span>{step?.number}</span>
+                  )}
+                  <span className="hidden md:inline">{step?.title}</span>
                 </div>
-              </div>
-              {index < steps?.length - 1 && (
-                <div className="w-6 sm:w-12 h-0.5 bg-border mx-2 sm:mx-3"></div>
-              )}
-            </div>
-          ))}
+                {index < steps?.length - 1 && (
+                  <div className={`w-3 sm:w-4 h-0.5 ${currentStep > index + 1 ? 'bg-primary' : 'bg-border'}`}></div>
+                )}
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
 
       {/* Dynamic Content Container */}
-      <div className="mb-8">
+      <div className="mb-6">
         {renderStepContent()}
       </div>
 
-      {/* Wizard Action Footer */}
-      <div className="flex items-center justify-between pt-6 border-t border-border/80">
+      {/* Compact Wizard Action Footer */}
+      <div className="flex items-center justify-between pt-4 border-t border-border/80">
         <Button
           variant="outline"
+          size="sm"
           onClick={handlePrevious}
           disabled={currentStep === 1}
           iconName="ArrowLeft"
           iconPosition="left"
+          className="rounded-xl px-4"
         >
           Previous
         </Button>
-        <div className="text-xs sm:text-sm font-medium text-muted-foreground">
-          Step {currentStep} of {steps?.length}
+        <div className="text-xs font-semibold text-muted-foreground">
+          Step <span className="text-foreground font-bold">{currentStep}</span> of {steps?.length}
         </div>
         <Button
           variant="default"
+          size="sm"
           onClick={handleNext}
           disabled={!canProceed() || isSubmitting}
-          iconName={currentStep === 4 ? "Send" : "ArrowRight"}
+          iconName={currentStep === 4 ? "MessageSquare" : "ArrowRight"}
           iconPosition="right"
-          className="gradient-accent"
+          className="gradient-accent rounded-xl px-5 shadow-sm"
         >
-          {isSubmitting ? "Sending..." : (currentStep === 4 ? "Send Proposal" : "Next")}
+          {isSubmitting ? "Processing..." : (currentStep === 4 ? "Request Consultation" : "Next Step")}
         </Button>
       </div>
     </div>

@@ -354,7 +354,7 @@ const CareersSection = () => {
             </Button>
             <p className="text-sm text-muted-foreground mt-4">
               Don't see a perfect match? Send us your resume anyway at{' '}
-              <a href="mailto:careers@mindmesh.co.in" className="text-primary hover:underline">
+              <a href="mailto:careers@mindmesh.co.in" className="text-primary underline underline-offset-2 hover:opacity-80 font-medium">
                 careers@mindmesh.co.in
               </a>
             </p>

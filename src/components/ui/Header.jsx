@@ -42,13 +42,15 @@ const Header = () => {
   };
 
   const Logo = () => (
-    <Link to="/homepage" className="flex items-center group" onClick={closeMenu}>
+    <Link to="/homepage" className="flex items-center group py-1" onClick={closeMenu}>
       <img 
-        src="/mindmesh-logo.png" 
+        src="/mindmesh-logo.webp" 
         alt="MindMesh Logo" 
-        className="h-12 w-auto object-contain hover:opacity-90 transition-opacity" 
-        width="160"
-        height="48"
+        className="h-14 sm:h-[58px] w-auto object-contain hover:opacity-90 transition-all duration-200" 
+        width="95"
+        height="58"
+        fetchPriority="high"
+        loading="eager"
       />
     </Link>
   );
@@ -62,7 +64,7 @@ const Header = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <Logo />
 
           {/* Desktop Navigation */}
